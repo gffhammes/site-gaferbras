@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 
-const Home: NextPage = () => {
+const Services: NextPage = () => {
   return (
     <>
 
@@ -8,4 +8,4 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home
+export default Services
