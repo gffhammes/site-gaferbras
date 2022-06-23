@@ -24,7 +24,7 @@ const frames = [
 
 export const Frames = (props: IProps) => {
   return (
-    <Grid container spacing={1}>
+    <Grid container spacing={1} sx={{ position: 'relative', zIndex: 200 }}>
       {frames.map(frame => (
         <Grid item xs={6} md={3} key={frame.title}>
           <Box bgcolor='#D1D4F0' sx={{ width: '100%', aspectRatio: '1 / 1', position: 'relative' }}>

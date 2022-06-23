@@ -1,4 +1,5 @@
 import { Box, Container, Stack, Typography } from '@mui/material'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React from 'react'
@@ -11,13 +12,19 @@ export const NavBar = (props: IProps) => {
 
   return (
     <Box>
-      <Container>
+      <Container sx={{ py: 2 }}>
         <Stack direction='row' alignItems='center' justifyContent='space-between'>
           <Box>
             <Link href='/' passHref>
               <a>                
-                <Box>
-                  <Typography variant='h1'>LOGO</Typography>
+                <Box sx={{ position: 'relative', height: '6rem', width: '14rem' }}>
+                  <Image
+                    src='/images/gaferbras-logo.png'
+                    alt='Gaferbras'
+                    layout='fill'
+                    objectFit='contain'
+                    objectPosition='left'
+                  />
                 </Box>
               </a>
             </Link>
