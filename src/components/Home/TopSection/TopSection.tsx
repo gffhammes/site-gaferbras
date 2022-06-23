@@ -9,7 +9,7 @@ interface IProps { }
 
 export const TopSection = (props: IProps) => {
   return (
-    <Box>
+    <Box bgcolor='#F8F8FD'>
       <Container>
         <Text />
         <Frames />
