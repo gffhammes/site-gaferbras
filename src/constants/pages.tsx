@@ -10,7 +10,7 @@ export const pages: IPage[] = [
   },
   {
     route: '/sobre-nos',
-    title: 'Sobre Nós',
+    title: 'Sobre nós',
   },
   {
     route: '/servicos',
