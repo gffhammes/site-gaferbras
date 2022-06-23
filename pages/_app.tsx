@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app'
 import { HeadPageTitle } from '../src/components/common/HeadPageTitle'
 import { NavBar } from '../src/components/common/NavBar'
 import { createTheme, ThemeProvider } from '@mui/material'
+import { Footer } from '../src/components/common/Footer'
 
 const theme = createTheme({
   palette: {
@@ -21,6 +22,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <HeadPageTitle />
       <NavBar />
       <Component {...pageProps} />
+      <Footer />
     </ThemeProvider>
   )
 }

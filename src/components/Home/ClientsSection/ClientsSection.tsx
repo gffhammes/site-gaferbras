@@ -25,7 +25,7 @@ const clients = [
 export const ClientsSection = (props: IProps) => {
   return (
     <Box bgcolor='#F2F2FC'>
-      <Container sx={{ py: 5, my: 10 }}>
+      <Container sx={{ py: 5, mt: 10 }}>
         <Grid container spacing={2}>
           {clients.map(client => (
             <Grid item key={client.name} xs={6} sm={3} >
