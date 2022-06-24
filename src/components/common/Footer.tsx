@@ -52,10 +52,9 @@ const titleProps = {
 
 export const Footer = (props: IProps) => {
   return (
-    <>
-    
+    <Box component='footer'>    
       <Box bgcolor='primary.main'>
-        <Container sx={{ py: 10, color: 'white' }}>
+        <Container sx={{ py: 5, color: 'white' }}>
           <Box sx={{ position: 'relative', height: '6rem', width: '14rem', mb: 2 }}>
             <Image
               src='/images/gaferbras-logo-negativa.png'
@@ -66,7 +65,7 @@ export const Footer = (props: IProps) => {
             />
           </Box>
           <Grid container>
-            <Grid item xs={4}>
+            <Grid item xs={5}>
               <Stack spacing={1}>                
                 {pages.slice(0, pages.length - 1).map(page => (
                     <Box key={page.title} sx={{ width: 'fit-content' }}>
@@ -100,7 +99,7 @@ export const Footer = (props: IProps) => {
                 })}
               </Stack>
             </Grid>
-            <Grid item xs={4}>
+            <Grid item xs={3}>
               <Stack justifyContent='space-between' sx={{ height: '100%' }}>              
                 <Box>
                   <Typography {...titleProps}>Trabalhe conosco</Typography>
@@ -134,6 +133,6 @@ export const Footer = (props: IProps) => {
           <Typography fontSize={12} textAlign='center'>Todos os direitos estão reservados</Typography>
         </Container>
       </Box>
-    </>
+    </Box>
   )
 }

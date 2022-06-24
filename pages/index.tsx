@@ -1,3 +1,4 @@
+import { Box } from '@mui/material'
 import type { NextPage } from 'next'
 import { ClientsSection } from '../src/components/Home/ClientsSection/ClientsSection'
 import { ContactForm } from '../src/components/Home/ContactSection/ContactSection'

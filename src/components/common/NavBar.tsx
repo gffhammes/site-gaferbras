@@ -11,7 +11,7 @@ export const NavBar = (props: IProps) => {
   const { asPath } = useRouter();
 
   return (
-    <Box>
+    <Box component='header'>
       <Container sx={{ py: 2 }}>
         <Stack direction='row' alignItems='center' justifyContent='space-between'>
           <Box>
@@ -29,20 +29,22 @@ export const NavBar = (props: IProps) => {
               </a>
             </Link>
           </Box>
-          <Stack direction='row' component='ul' spacing={4} sx={{ listStyle: 'none' }}>
-            {pages.map(page => {
-              const isActivePage: boolean = asPath === page.route;
-              return (
-                <Box component='li' key={page.title} sx={{ height: '3rem', borderBottom: isActivePage ? '1px solid var(--red)' : 'none' }}>
-                  <Link href={page.route} passHref>
-                    <a>                    
-                      <Typography fontSize={20} fontWeight={isActivePage ? 600 : 400} sx={{ color: 'primary.main' }}>{page.title}</Typography>
-                    </a>
-                  </Link>
-                </Box>
-              )
-            })}
-          </Stack>
+          <Box component='nav'>
+            <Stack direction='row' component='ul' spacing={4} sx={{ listStyle: 'none' }}>
+              {pages.map(page => {
+                const isActivePage: boolean = asPath === page.route;
+                return (
+                  <Box component='li' key={page.title} sx={{ height: '3rem', borderBottom: isActivePage ? '1px solid var(--red)' : 'none' }}>
+                    <Link href={page.route} passHref>
+                      <a>                    
+                        <Typography fontSize={20} fontWeight={isActivePage ? 600 : 400} sx={{ color: 'primary.main' }}>{page.title}</Typography>
+                      </a>
+                    </Link>
+                  </Box>
+                )
+              })}
+            </Stack>
+          </Box>
         </Stack>
       </Container>
     </Box>

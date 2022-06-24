@@ -2,7 +2,7 @@ import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import { HeadPageTitle } from '../src/components/common/HeadPageTitle'
 import { NavBar } from '../src/components/common/NavBar'
-import { createTheme, ThemeProvider } from '@mui/material'
+import { Box, createTheme, ThemeProvider } from '@mui/material'
 import { Footer } from '../src/components/common/Footer'
 
 const theme = createTheme({
@@ -21,7 +21,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     <ThemeProvider theme={theme}>
       <HeadPageTitle />
       <NavBar />
-      <Component {...pageProps} />
+      <Box component='main'>        
+        <Component {...pageProps} />
+      </Box>
       <Footer />
     </ThemeProvider>
   )
