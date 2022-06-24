@@ -15,7 +15,7 @@ export const OptionsAccordion = ({ options, selectedOption, group, handleOptionC
   const boxShadow = group === 'Ferramentaria' ? '0px 0px 50px rgba(45, 56, 252, .45)' : '0px 0px 50px rgba(254, 57, 68, .3)'
 
   return (
-    <Accordion defaultExpanded sx={{ boxShadow: 0 }} >
+    <Accordion defaultExpanded disableGutters sx={{ boxShadow: 0, '&.Mui-expanded:first-of-type': { mt: '40px' }  }} >
       <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ color: 'white' }} />} sx={{ backgroundColor: color, color: 'white', boxShadow }} >
         <Typography fontSize={22} fontWeight={600} >{group}</Typography>
       </AccordionSummary>
