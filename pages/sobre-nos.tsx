@@ -1,10 +1,12 @@
 import type { NextPage } from 'next'
-import { MainSection } from '../src/components/About/MainSection'
+import { ClientsSection } from '../src/components/About/ClientsSection'
+import { MainSection } from '../src/components/About/MainSection/MainSection'
 
 const About: NextPage = () => {
   return (
     <>
       <MainSection />
+      <ClientsSection />
     </>
   )
 }
