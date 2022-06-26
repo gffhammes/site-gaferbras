@@ -10,27 +10,32 @@ const options = [
   {
     group: 'Ferramentaria',
     title: 'Ferramentais',
-    text: 'Lorem ipsum',
+    text: 'Possuímos uma estrutura moderna para o desenvolvimento e confecção de moldes de pequeno e médio porte (até 10 toneladas). Oferecemos assistência desde o estudo e desenvolvimento do projeto do produto até a simulação de injeção e o projeto final do ferramental, adequando-o às necessidades do cliente.<br/>Todo o processo é realizado com acompanhamento do cliente através dos cronogramas, fotos e/ou visitas.',
+    image: '/images/gaferbras-1.jpg',
   },
   {
     group: 'Ferramentaria',
-    title: 'Manutenção & Alterações',
+    title: 'Manutenção<br/>& Alterações',
     text: 'Lorem ipsum',
+    image: '/images/gaferbras-1.jpg',
   },
   {
     group: 'Ferramentaria',
-    title: 'Peças de reposição & Usinagem',
+    title: 'Peças de reposição<br/>& Usinagem',
     text: 'Lorem ipsum',
+    image: '/images/gaferbras-1.jpg',
   },
   {
     group: 'Injeção',
-    title: 'Injeção & Tryout de moldes',
+    title: 'Injeção & Tryout<br/>de moldes',
     text: 'Lorem ipsum',
+    image: '/images/gaferbras-1.jpg',
   },
   {
     group: 'Injeção',
-    title: 'Produtos injetados Gaferbras',
+    title: 'Produtos injetados<br/>Gaferbras',
     text: 'Lorem ipsum',
+    image: '/images/gaferbras-1.jpg',
   },
 ]
 

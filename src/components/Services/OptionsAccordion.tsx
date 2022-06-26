@@ -19,13 +19,18 @@ export const OptionsAccordion = ({ options, selectedOption, group, handleOptionC
       <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ color: 'white' }} />} sx={{ backgroundColor: color, color: 'white', boxShadow }} >
         <Typography fontSize={22} fontWeight={600} >{group}</Typography>
       </AccordionSummary>
-      <AccordionDetails sx={{ backgroundColor: '#EEEEFD', py: 2 }}>
+      <AccordionDetails sx={{ backgroundColor: '#EEEEFD', py: 3, px: 3 }}>
         <Stack spacing={2}>              
           {options.map((option, index) => {
             const isActiveOption = _isEqual(selectedOption, option)
               return (
-                <Stack key={index} direction='row' alignItems='center' justifyContent='space-between' sx={{ cursor: 'pointer' }} onClick={() => {handleOptionChange(option)}}>
-                  <Typography sx={{ color }} fontWeight={isActiveOption ? 600 : 400} >{option.title}</Typography>
+                <Stack key={index} direction='row' alignItems='center' justifyContent='space-between' sx={{ cursor: 'pointer', '&:hover > p': { fontWeight: 600 } }} onClick={() => {handleOptionChange(option)}}>
+                  <Typography
+                    sx={{ color, transition: '100ms ease-in all' }}
+                    fontWeight={isActiveOption ? 600 : 400}
+                    lineHeight={1}
+                    dangerouslySetInnerHTML={{ __html: option.title }}
+                  />
                   {isActiveOption && <Box bgcolor={color} sx={{ height: '.5rem', width: '.5rem', borderRadius: '1rem' }} />}
                 </Stack>
               )
