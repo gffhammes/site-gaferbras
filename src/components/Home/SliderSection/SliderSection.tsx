@@ -1,5 +1,6 @@
 import { Box, Container, Typography } from '@mui/material'
 import React from 'react'
+import Slider from './Slider'
 
 interface IProps { }
 
@@ -7,8 +8,8 @@ const text = `Estrutura moderna com equipamentos de <strong>última geração</s
 
 export const SliderSection = (props: IProps) => {
   return (
-    <Box>
-      <Container sx={{ py: 10 }}>        
+    <Box sx={{ py: 10 }}>
+      <Container sx={{ mb: 10 }}>        
         <Box>
           <Typography
             fontSize={36}
@@ -27,6 +28,7 @@ export const SliderSection = (props: IProps) => {
           />
         </Box>
       </Container>
+      <Slider />
     </Box>
   )
 }
