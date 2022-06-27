@@ -24,9 +24,9 @@ export const OptionsAccordion = ({ options, selectedOption, group, handleOptionC
           {options.map((option, index) => {
             const isActiveOption = _isEqual(selectedOption, option)
               return (
-                <Stack key={index} direction='row' alignItems='center' justifyContent='space-between' sx={{ cursor: 'pointer', '&:hover > p': { fontWeight: 600 } }} onClick={() => {handleOptionChange(option)}}>
+                <Stack key={index} direction='row' alignItems='center' justifyContent='space-between' sx={{ cursor: 'pointer', '&:hover > p': { transform: 'translateX(5px)' } }} onClick={() => {handleOptionChange(option)}}>
                   <Typography
-                    sx={{ color, transition: '100ms ease-in all' }}
+                    sx={{ color, transition: '200ms ease all' }}
                     fontWeight={isActiveOption ? 600 : 400}
                     lineHeight={1}
                     dangerouslySetInnerHTML={{ __html: option.title }}

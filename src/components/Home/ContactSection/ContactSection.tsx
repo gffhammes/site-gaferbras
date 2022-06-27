@@ -5,7 +5,7 @@ import { Text } from './Text'
 
 interface IProps { }
 
-export const ContactForm = (props: IProps) => {
+export const ContactSection = (props: IProps) => {
   return (
     <Box bgcolor='#F2F2FC'>
       <Container sx={{ py: 10 }} maxWidth='md'>

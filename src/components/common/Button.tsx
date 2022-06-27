@@ -11,8 +11,8 @@ const ColorButton = styled(MuiButton)<ButtonProps>(() => ({
   },
 }));
 
-export default function Button({ children, startIcon }: { children: string, startIcon?: any }) {
+export default function Button({ children, startIcon, ...props }: ButtonProps) {
   return (
-    <ColorButton variant="contained" startIcon={startIcon}>{children}</ColorButton>
+    <ColorButton {...props} variant="contained" startIcon={startIcon}>{children}</ColorButton>
   );
 }
