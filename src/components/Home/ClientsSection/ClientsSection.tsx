@@ -28,8 +28,8 @@ export const ClientsSection = (props: IProps) => {
       <Container sx={{ py: 5, mt: 10 }}>
         <Grid container spacing={2}>
           {clients.map(client => (
-            <Grid item key={client.name} xs={6} sm={3} >
-              <Box sx={{ position: 'relative', height: '10rem', width: '10rem' }}>
+            <Grid item key={client.name} xs={6} sm={3} sx={{ display: 'flex' }} >
+              <Box sx={{ position: 'relative', height: '5rem', width: '10rem', m: 'auto' }}>
                 <Image
                   src={`/images/clientes/${client.logo}`}
                   alt={client.name}
