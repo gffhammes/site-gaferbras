@@ -1,11 +1,12 @@
 import { Box, Container, Grid, Stack, Typography } from '@mui/material'
 import Link from 'next/link'
 import React from 'react'
-import { pages } from '../../constants/pages'
-import Facebook from '../../../public/vectors/facebook.svg'
-import Instagram from '../../../public/vectors/instagram.svg'
-import Linkedin from '../../../public/vectors/linkedin.svg'
+import { pages } from '../../../constants/pages'
+import Facebook from '../../../../public/vectors/facebook.svg'
+import Instagram from '../../../../public/vectors/instagram.svg'
+import Linkedin from '../../../../public/vectors/linkedin.svg'
 import Image from 'next/image'
+import { Copyright } from './Copyright'
 
 interface IProps { }
 
@@ -65,7 +66,7 @@ export const Footer = (props: IProps) => {
             />
           </Box>
           <Grid container>
-            <Grid item xs={5}>
+            <Grid item xs={12} md={5}>
               <Stack spacing={1}>                
                 {pages.slice(0, pages.length - 1).map(page => (
                     <Box key={page.title} sx={{ width: 'fit-content' }}>
@@ -79,7 +80,7 @@ export const Footer = (props: IProps) => {
                 }
               </Stack>
             </Grid>
-            <Grid item xs={4}>
+            <Grid item xs={12} md={4}>
               <Typography {...titleProps}>Informações</Typography>
               <Stack spacing={1}>              
                 {infos.map(info => {
@@ -99,7 +100,7 @@ export const Footer = (props: IProps) => {
                 })}
               </Stack>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={12} md={3}>
               <Stack justifyContent='space-between' sx={{ height: '100%' }}>              
                 <Box>
                   <Typography {...titleProps}>Trabalhe conosco</Typography>
@@ -128,11 +129,7 @@ export const Footer = (props: IProps) => {
           </Grid>
         </Container>
       </Box>
-      <Box bgcolor='#2D38FC'>
-        <Container sx={{ py: 1, color: 'white' }}>          
-          <Typography fontSize={12} textAlign='center'>Todos os direitos estão reservados</Typography>
-        </Container>
-      </Box>
+      <Copyright />
     </Box>
   )
 }

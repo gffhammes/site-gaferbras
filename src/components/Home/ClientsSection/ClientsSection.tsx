@@ -26,10 +26,10 @@ export const ClientsSection = (props: IProps) => {
   return (
     <Box bgcolor='rgba(242, 242, 252, 0.5)'>
       <Container sx={{ py: 5, mt: 20 }}>
-        <Grid container spacing={2}>
+        <Grid container spacing={5}>
           {clients.map(client => (
-            <Grid item key={client.name} xs={6} sm={3} sx={{ display: 'flex' }} >
-              <Box sx={{ position: 'relative', height: '5rem', width: '10rem', m: 'auto' }}>
+            <Grid item key={client.name} xs={6} md={3} sx={{ display: 'flex' }} >
+              <Box sx={{ position: 'relative', height: '4rem', width: '10rem', m: 'auto' }}>
                 <Image
                   src={`/images/clientes/${client.logo}`}
                   alt={client.name}

@@ -22,7 +22,7 @@ export const MainSection = (props: IProps) => {
   return (
     <Box sx={{ background: 'linear-gradient(#F2F2FC 95%, #fff 95%)' }}>
       <Container sx={{ color: 'primary.main' }}>
-        <Stack direction='row' spacing={10}>          
+        <Stack direction={{ xs: 'column', md: 'row' }} spacing={10}>          
           <Box sx={{ maxWidth: '55ch', py: 5 }}>          
             <Typography fontSize={36} fontWeight={600} sx={{ mb: 2  }}>Sobre nós</Typography>
             <Typography fontSize={14} sx={{ whiteSpace: 'pre-wrap' }}>{text}</Typography>

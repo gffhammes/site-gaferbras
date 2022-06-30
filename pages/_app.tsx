@@ -3,7 +3,9 @@ import type { AppProps } from 'next/app'
 import { HeadPageTitle } from '../src/components/common/HeadPageTitle'
 import { NavBar } from '../src/components/common/NavBar/NavBar'
 import { Box, createTheme, ThemeProvider } from '@mui/material'
-import { Footer } from '../src/components/common/Footer'
+import { Footer } from '../src/components/common/Footer/Footer' 
+import { ProgressBar } from '../src/components/common/ProgressBar'
+import '../styles/progress-bar.css'
 
 const theme = createTheme({
   palette: {
@@ -16,9 +18,10 @@ const theme = createTheme({
   }
 })
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps) { 
   return (
     <ThemeProvider theme={theme}>
+      <ProgressBar />
       <HeadPageTitle />
       <NavBar />
       <Box component='main'>        

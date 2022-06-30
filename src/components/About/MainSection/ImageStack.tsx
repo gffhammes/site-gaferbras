@@ -11,7 +11,7 @@ interface ICardProps {
   bgColor: 'primary' | 'secondary';
 }
 
-const cardPadding = '3rem'
+const cardPadding = {xs: '1.5rem', md: '3rem' }
 
 const Card = ({ children, bgColor }: ICardProps) => {
   return (    
@@ -24,7 +24,7 @@ const Card = ({ children, bgColor }: ICardProps) => {
         position: 'relative',
       }}
     >
-      <Typography fontSize={48} lineHeight={1} sx={{ p: cardPadding }}>{children}</Typography>
+      <Typography fontSize={{ xs: 24, md: 48}} lineHeight={1} sx={{ p: cardPadding }}>{children}</Typography>
       <Box sx={{ position: 'absolute', top: 0, right: 0, p: cardPadding }}>
         {bgColor === 'primary' ? <SecondaryArrow /> : <PrimaryArrow />}
       </Box>
@@ -35,7 +35,7 @@ const Card = ({ children, bgColor }: ICardProps) => {
 export const ImageStack = (props: IProps) => {
   return (
     <Stack>
-      <Box sx={{ position: 'relative', width: '33rem', height: '20rem' }}>        
+      <Box sx={{ position: 'relative', width: { xs: '100%', md: '33rem' }, height: '20rem' }}>        
         <Image
           src='/images/gaferbras-1.jpg'
           alt='Gaferbras'
