@@ -1,7 +1,7 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import { HeadPageTitle } from '../src/components/common/HeadPageTitle'
-import { NavBar } from '../src/components/common/NavBar'
+import { NavBar } from '../src/components/common/NavBar/NavBar'
 import { Box, createTheme, ThemeProvider } from '@mui/material'
 import { Footer } from '../src/components/common/Footer'
 
