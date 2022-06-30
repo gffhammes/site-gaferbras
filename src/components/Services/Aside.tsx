@@ -12,7 +12,7 @@ interface IProps {
 export const Aside = ({ options, selectedOption, handleOptionChange }: IProps) => {
 
   return (
-    <Box bgcolor='#F2F2FC' component='aside' sx={{ flexBasis: '30rem' }}>
+    <Box bgcolor='var(--light-grey)' component='aside' sx={{ flexBasis: '30rem' }}>
       <Stack sx={{ p: 10 }} spacing={5} justifyContent='flex-start'>
         <Typography fontSize={36} fontWeight={600} lineHeight={1} sx={{ color: 'primary.main' }}>Nossos<br/>Serviços</Typography>
         <OptionsAccordion group={options[0].group} options={options.slice(0, 3)} selectedOption={selectedOption} handleOptionChange={handleOptionChange}/>

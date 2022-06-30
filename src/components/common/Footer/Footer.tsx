@@ -56,7 +56,7 @@ export const Footer = (props: IProps) => {
     <Box component='footer'>    
       <Box bgcolor='primary.main'>
         <Container sx={{ py: 5, color: 'white' }}>
-          <Box sx={{ position: 'relative', height: '6rem', width: '14rem', mb: 2 }}>
+          <Box sx={{ position: 'relative', height: '6rem', width: '14rem', mb: { xs: 5, md: 2} }}>
             <Image
               src='/images/gaferbras-logo-negativa.png'
               alt='Gaferbras'
@@ -65,7 +65,7 @@ export const Footer = (props: IProps) => {
               objectPosition='left'
             />
           </Box>
-          <Grid container>
+          <Grid container spacing={5}>
             <Grid item xs={12} md={5}>
               <Stack spacing={1}>                
                 {pages.slice(0, pages.length - 1).map(page => (

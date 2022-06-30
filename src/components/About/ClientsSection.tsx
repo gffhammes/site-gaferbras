@@ -31,7 +31,7 @@ export const ClientsSection = (props: IProps) => {
         <Typography sx={{ color: 'primary.main' }} fontWeight={500}>Conheça algumas das marcas que confiam em nosso trabalho:</Typography>
         <Stack direction='row' spacing={4} sx={{ my: 5 }}>
           {clients.map(client => (
-            <Box key={client.name} sx={{ position: 'relative', height: '4rem', width: '7rem' }}>
+            <Box key={client.name} sx={{ position: 'relative', height: '3rem', width: '7rem' }}>
               <Image
                 src={`/images/clientes/${client.logo}`}
                 alt={client.name}

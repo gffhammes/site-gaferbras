@@ -19,7 +19,11 @@ const sxEmblaContainer = {
 
 const sxEmblaSlide = {
   position: 'relative',
-  flex: '0 0 60%',
+  flex: {
+    xs: '0 0 90%',
+    sm: '0 0 75%',
+    md: '0 0 60%',
+  },
   maxWidth: '1120px',
   mr: 2
 }
@@ -34,7 +38,7 @@ const slides = [
 ]
 
 const Slider = (props: Props) => {  
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, draggable: false })
   const [selectedSlide, setSelectedSlide] = useState(0)
   
   const scrollPrev = useCallback(() => {
@@ -62,7 +66,7 @@ const Slider = (props: Props) => {
                   sx={{
                     position: 'relative',
                     transition: '600ms ease all',
-                    height: isActiveSlide ? '30rem' : '25rem',
+                    height: isActiveSlide ? { xs: '20rem', md: '30rem' } : { xs: '15rem', md: '25rem' },
                     my: isActiveSlide ? 0 : 5,
                     backgroundColor: '#363636'
                   }}
@@ -80,7 +84,7 @@ const Slider = (props: Props) => {
         </Box>
       </Box>
       <Box sx={{ position: 'absolute', width:'100%', top: '50%', transform: 'translateY(-50%)' }}>        
-        <Container maxWidth={false} sx={{ maxWidth: '1000px', width: '60%' }} >
+        <Container maxWidth={false} sx={{ maxWidth: '1000px', width: { xs: '90%', sm: '75%', md: '60%' } }} >
           <Stack direction='row' justifyContent='space-between' alignItems='center' sx={{ width: '100%' }}>
             <Box onClick={scrollPrev} sx={{ cursor: 'pointer' }}>
               <LeftArrow />

@@ -20,7 +20,7 @@ Ao longo de nossa história, construímos uma carteira de clientes com empresas 
 
 export const MainSection = (props: IProps) => {
   return (
-    <Box sx={{ background: 'linear-gradient(#F2F2FC 95%, #fff 95%)' }}>
+    <Box sx={{ background: 'linear-gradient(var(--light-grey) 95%, #fff 95%)' }}>
       <Container sx={{ color: 'primary.main' }}>
         <Stack direction={{ xs: 'column', md: 'row' }} spacing={10}>          
           <Box sx={{ maxWidth: '55ch', py: 5 }}>          

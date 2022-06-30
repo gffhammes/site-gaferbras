@@ -1,12 +1,14 @@
 :root {
   --primary: #3F3C9A;
   --red: #E83924;
+	--light-grey: rgba(242, 242, 252, 0.5);
 }
 
 html,
 body {
   font-family: Inter, sans-serif;
 }
+
 
 a {
   color: inherit;
@@ -18,4 +20,23 @@ a {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  -webkit-tap-highlight-color: transparent;
 }
+
+
+.float {  
+	animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+	0% {
+		transform: translate(0, 2.5px);
+	}
+	50% {
+		transform: translate(0, -2.5px);
+	}
+	100% {
+		transform: translate(0, 2.5px);
+	}
+}
+

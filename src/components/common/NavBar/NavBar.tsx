@@ -10,7 +10,7 @@ const Logo = () => {
   return (
     <Link href='/' passHref>
       <a>                
-        <Box sx={{ position: 'relative', height: '6rem', width: '14rem' }}>
+        <Box sx={{ position: 'relative', height: { xs: '3rem', sm: '4rem', md: '6rem' }, width: '10rem' }}>
           <Image
             src='/images/gaferbras-logo.png'
             alt='Gaferbras'

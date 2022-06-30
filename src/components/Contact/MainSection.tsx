@@ -7,7 +7,7 @@ interface IProps { }
 
 export const MainSection = (props: IProps) => {
   return (
-    <Box bgcolor='#F2F2FC'>
+    <Box bgcolor='var(--light-grey)'>
       <Container sx={{ py: 10 }}>
         <TitleAndText
           title='Contato'

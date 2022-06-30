@@ -1,35 +1,36 @@
 import { Box, Container, IconButton, Stack, Typography } from '@mui/material'
 import Link from 'next/link';
-import React, { useMemo } from 'react'
+import React, { useMemo, useState } from 'react'
 import { pages } from '../../../constants/pages'
 import { useRouter } from 'next/router'
 import Button from '../Button';
 import { useBreakPoint } from '../../../hooks/useBreakPoint';
 import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
+import { MobileMenu } from './MobileMenu';
 
 interface IProps { }
 
-const NavLink = ({ page, isActivePage }: any) => {
+const NavLink = ({ page, isActivePage, toggleMenu }: any) => {
   return (
     <Box component='li' key={page.title} sx={{ pt: '.5rem', pb: '.75rem', borderBottom: isActivePage ? '1px solid var(--red)' : 'none' }}>
       <Link href={page.route} passHref>
         <a>                    
-          <Typography fontSize={20} fontWeight={isActivePage ? 600 : 400} sx={{ color: 'primary.main' }}>{page.title}</Typography>
+          <Typography onClick={toggleMenu} fontSize={20} fontWeight={isActivePage ? 600 : 400} sx={{ color: 'primary.main' }}>{page.title}</Typography>
         </a>
       </Link>
     </Box>
   )
 }
 
-const ContactLink = ({ page }: any) => {
+const ContactLink = ({ page, toggleMenu }: any) => {
   return (
     <Link href={page.route} passHref key={page.title}>
       <a style={{ height: 'fit-content' }}>
         <Box component='li' sx={{ height: 'fit-content' }}>
-        <Button>             
-          <Typography fontSize={20} fontWeight={500} sx={{ color: 'white' }}>{page.title.toUpperCase()}</Typography>
-        </Button>   
-
+          <Button onClick={toggleMenu}>
+            <Typography fontSize={20} fontWeight={500} sx={{ color: 'white' }}>{page.title.toUpperCase()}</Typography>
+          </Button>
         </Box>
       </a>
     </Link>
@@ -37,19 +38,26 @@ const ContactLink = ({ page }: any) => {
 }
 
 export const NavLinks = (props: IProps) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { asPath } = useRouter();
   const { mdSize } = useBreakPoint();
 
+  const toggleMenu = () => {
+    setIsMenuOpen(isMenuOpen => !isMenuOpen);
+  }
+
   const linksMemo = useMemo(() => {
-    return (
-      pages.map(page => {
-        if (page.route !== '/contato') {
-          const isActivePage: boolean = asPath === page.route;          
-          return <NavLink page={page} isActivePage={isActivePage} />;
-        } else {
-          return <ContactLink page={page}/>;
-        }
-      })
+    return (      
+      <Stack direction={{ xs: 'column', md: 'row' }} component='ul' spacing={4} sx={{ listStyle: 'none' }}>
+        {pages.map(page => {
+          if (page.route !== '/contato') {
+            const isActivePage: boolean = asPath === page.route;          
+            return <NavLink page={page} isActivePage={isActivePage} toggleMenu={toggleMenu}/>;
+          } else {
+            return <ContactLink page={page} toggleMenu={toggleMenu}/>;
+          }
+        })}
+      </Stack>
     )
   }, [asPath])
 
@@ -57,14 +65,17 @@ export const NavLinks = (props: IProps) => {
     <>      
       {mdSize && 
         <Box component='nav'>
-          <Stack direction='row' component='ul' spacing={4} sx={{ listStyle: 'none' }}>
-            {linksMemo}
-          </Stack>
-        </Box>}
+          {linksMemo}
+        </Box>
+      }
       {!mdSize &&
-        <IconButton sx={{ fontSize: 40, color: 'primary.main' }}>
-          <MenuIcon fontSize='inherit' />
-        </IconButton>}
+        <>        
+          <IconButton onClick={toggleMenu} sx={{ fontSize: 30, color: 'primary.main', zIndex: 1000, position: 'relative' }}>
+            { isMenuOpen ? <CloseIcon fontSize='inherit' /> : <MenuIcon fontSize='inherit' />}
+          </IconButton>
+          <MobileMenu links={linksMemo} isOpen={isMenuOpen} />
+        </>
+      }
     </>
   )
 }

@@ -7,9 +7,9 @@ interface IProps { }
 
 export const ContactSection = (props: IProps) => {
   return (
-    <Box bgcolor='#F2F2FC'>
+    <Box bgcolor='var(--light-grey)'>
       <Container sx={{ py: 10 }} maxWidth='md'>
-        <Stack direction={{ xs: 'column', md: 'row'}} justifyContent='space-between' alignItems='center'>
+        <Stack direction={{ xs: 'column', md: 'row'}} justifyContent='space-between' alignItems='center' spacing={8}>
           <Text />
           <Contact />
         </Stack>        
