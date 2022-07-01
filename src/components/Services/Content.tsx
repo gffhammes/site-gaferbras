@@ -14,24 +14,29 @@ export const Content = ({ selectedOption }: IProps) => {
 
   
   return (
-    <Box bgcolor='rgba(242, 242, 252, .2)' sx={{ flex: 1 }}>
-      <Box sx={{ py: 10, px: 5 }}>        
-        <Typography fontSize={18} sx={{ color: '#505965' }}>{selectedOption.group}</Typography>
+    <Box bgcolor='rgba(242, 242, 252, .2)' sx={{ maxWidth: '872px' }}>
+      <Box sx={{ py: 10, px: 5, pr: 3 }}>        
+        <Typography fontSize={18} sx={{ color: 'rgba(80, 89, 101, 0.5)' }}>{selectedOption.group}</Typography>
         <Typography
           fontSize={35}
           fontWeight={600}
-          sx={{ color: selectedOption.group === 'Ferramentaria' ? '#2D38FC' : 'secondary.main' }}
-          dangerouslySetInnerHTML={{ __html: oneLineTitle  }}        
+          sx={{
+            color: selectedOption.group === 'Ferramentaria' ? '#2D38FC' : 'secondary.main',
+            mb: 2
+          }}
+          dangerouslySetInnerHTML={{ __html: oneLineTitle  }}
         />
         <Typography
           fontSize={16}
           dangerouslySetInnerHTML={{ __html: selectedOption.text }}   
+          sx={{ mb: 2 }}
         />
-        <Box sx={{ position: 'relative', width: '50rem', height: '30rem' }}>
+        <Box sx={{ position: 'relative', width: '100%', height: '30rem' }}>
           <Image
             src={selectedOption.image}
             alt={selectedOption.title}
             layout='fill'
+            objectFit='cover'
           />
         </Box>
       </Box>

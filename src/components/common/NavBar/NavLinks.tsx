@@ -52,9 +52,9 @@ export const NavLinks = (props: IProps) => {
         {pages.map(page => {
           if (page.route !== '/contato') {
             const isActivePage: boolean = asPath === page.route;          
-            return <NavLink page={page} isActivePage={isActivePage} toggleMenu={toggleMenu}/>;
+            return <NavLink key={page.route} page={page} isActivePage={isActivePage} toggleMenu={toggleMenu}/>;
           } else {
-            return <ContactLink page={page} toggleMenu={toggleMenu}/>;
+            return <ContactLink key={page.route} page={page} toggleMenu={toggleMenu}/>;
           }
         })}
       </Stack>

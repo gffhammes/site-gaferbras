@@ -7,7 +7,12 @@ import { Footer } from '../src/components/common/Footer/Footer'
 import { ProgressBar } from '../src/components/common/ProgressBar'
 import '../styles/progress-bar.css'
 
-const theme = createTheme();
+const theme = createTheme({
+  palette: {
+    primary: { main: '#3F3C9A' },
+    secondary: { main: '#FE3C44' },
+  }
+});
 
 theme.typography.h1 = {
   fontWeight: 500,
@@ -20,9 +25,6 @@ theme.typography.h1 = {
     fontSize: 54,
   },
 }
-
-theme.palette.primary.main = '#3F3C9A';
-theme.palette.secondary.main = '#FE3C44';
 
 
 function MyApp({ Component, pageProps }: AppProps) { 

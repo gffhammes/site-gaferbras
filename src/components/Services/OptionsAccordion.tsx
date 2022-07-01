@@ -17,7 +17,7 @@ export const OptionsAccordion = ({ options, selectedOption, group, handleOptionC
   return (
     <Accordion defaultExpanded disableGutters sx={{ boxShadow: 0, '&.Mui-expanded:first-of-type': { mt: '40px' }  }} >
       <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ color: 'white' }} />} sx={{ backgroundColor: color, color: 'white', boxShadow }} >
-        <Typography fontSize={22} fontWeight={600} >{group}</Typography>
+        <Typography fontSize={22} fontWeight={600} sx={{ mr: 2 }}>{group}</Typography>
       </AccordionSummary>
       <AccordionDetails sx={{ backgroundColor: '#EEEEFD', py: 3, px: 3 }}>
         <Stack spacing={2}>              
