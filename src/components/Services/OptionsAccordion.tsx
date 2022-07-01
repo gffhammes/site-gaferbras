@@ -2,6 +2,7 @@ import { Accordion, AccordionDetails, AccordionSummary, Box, Container, Stack, T
 import React, { useState } from 'react'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import _isEqual from 'lodash/isEqual'
+import { useBreakPoint } from '../../hooks/useBreakPoint';
 
 interface IProps {
   options: any[];
@@ -10,12 +11,13 @@ interface IProps {
   handleOptionChange: (newOption: any) => void;}
 
 export const OptionsAccordion = ({ options, selectedOption, group, handleOptionChange}: IProps) => {
-  
+  const { mdSize } = useBreakPoint();
+
   const color = group === 'Ferramentaria' ? 'primary.main' : 'secondary.main';
   const boxShadow = group === 'Ferramentaria' ? '0px 0px 50px rgba(45, 56, 252, .45)' : '0px 0px 50px rgba(254, 57, 68, .3)'
 
   return (
-    <Accordion defaultExpanded disableGutters sx={{ boxShadow: 0, '&.Mui-expanded:first-of-type': { mt: '40px' }  }} >
+    <Accordion defaultExpanded={mdSize ? true : false} disableGutters sx={{ boxShadow: 0, '&.Mui-expanded:first-of-type': { mt: '40px' }  }} >
       <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ color: 'white' }} />} sx={{ backgroundColor: color, color: 'white', boxShadow }} >
         <Typography fontSize={22} fontWeight={600} sx={{ mr: 2 }}>{group}</Typography>
       </AccordionSummary>

@@ -15,7 +15,14 @@ export const Content = ({ selectedOption }: IProps) => {
   
   return (
     <Box bgcolor='rgba(242, 242, 252, .2)' sx={{ maxWidth: '872px' }}>
-      <Box sx={{ py: 10, px: 5, pr: 3 }}>        
+      <Box
+        sx={{
+          p: {
+            xs: '2rem 1rem',
+            md: '5rem 1.5rem 5rem 2.5rem',
+          },
+        }}
+      >        
         <Typography fontSize={18} sx={{ color: 'rgba(80, 89, 101, 0.5)' }}>{selectedOption.group}</Typography>
         <Typography
           fontSize={35}
@@ -31,7 +38,7 @@ export const Content = ({ selectedOption }: IProps) => {
           dangerouslySetInnerHTML={{ __html: selectedOption.text }}   
           sx={{ mb: 2 }}
         />
-        <Box sx={{ position: 'relative', width: '100%', height: '30rem' }}>
+        <Box sx={{ position: 'relative', width: '100%', aspectRatio: '1.75 / 1' }}>
           <Image
             src={selectedOption.image}
             alt={selectedOption.title}

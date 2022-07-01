@@ -2,6 +2,7 @@ import { Box, Container, Stack, Typography } from '@mui/material'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import { useBreakPoint } from '../../../hooks/useBreakPoint'
 import { NavLinks } from './NavLinks'
 
 interface IProps { }
@@ -25,9 +26,10 @@ const Logo = () => {
 }
 
 export const NavBar = (props: IProps) => {
+  const { mdSize } = useBreakPoint();
 
   return (
-    <Box component='header'>
+    <Box bgcolor='white' component='header' sx={{ position: mdSize ? 'relative' : 'sticky', top: 0, zIndex: 999, width: '100%' }}>
       <Container sx={{ py: 2 }}>
         <Stack direction='row' alignItems='center' justifyContent='space-between'>  
           <Logo />

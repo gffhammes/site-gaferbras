@@ -66,7 +66,7 @@ export const Footer = (props: IProps) => {
             />
           </Box>
           <Grid container spacing={5}>
-            <Grid item xs={12} md={5}>
+            <Grid item xs={12} sm={2.5} md={5}>
               <Stack spacing={1}>                
                 {pages.slice(0, pages.length - 1).map(page => (
                     <Box key={page.title} sx={{ width: 'fit-content' }}>
@@ -80,7 +80,7 @@ export const Footer = (props: IProps) => {
                 }
               </Stack>
             </Grid>
-            <Grid item xs={12} md={4}>
+            <Grid item xs={12} sm={5} md={4}>
               <Typography {...titleProps}>Informações</Typography>
               <Stack spacing={1}>              
                 {infos.map(info => {
@@ -100,7 +100,7 @@ export const Footer = (props: IProps) => {
                 })}
               </Stack>
             </Grid>
-            <Grid item xs={12} md={3}>
+            <Grid item xs={12} sm={4.5} md={3}>
               <Stack justifyContent='space-between' sx={{ height: '100%' }}>              
                 <Box>
                   <Typography {...titleProps}>Trabalhe conosco</Typography>
