@@ -15,16 +15,24 @@ const Input = ({ value, label, id, handleChange }: IInputProps) => {
   return (
     <Stack>      
       <label style={{ color: 'var(--primary)', marginBottom: '.5rem' }}>{label}</label>
-      <input
+      <Box
+        component='input'
         type='text'
         id={id}
         value={value}
         onChange={handleChange}
-        style={{
+        sx={{
           height: '2rem',
           padding: '2rem 1rem',
+          color: 'var(--primary)',
           backgroundColor: 'rgba(182, 182, 229, 0.1)',
-          border: 0
+          border: 0,
+          transition: '.2s all ease',
+          fontSize: 20,
+          '&:focus-visible': {
+            backgroundColor: 'rgba(182, 182, 229, 0.2)',
+            outline: 'none',
+          },
         }}
       />
     </Stack>
@@ -57,7 +65,7 @@ export const ContactForm = (props: IProps) => {
   return (
     <Box component='form' onSubmit={handleSubmit}>
       <Grid container spacing={2}>
-        <Grid item xs={6}>
+        <Grid item xs={12} sm={6}>
           <Input
             value={formData.name}
             label='Nome'
@@ -65,7 +73,7 @@ export const ContactForm = (props: IProps) => {
             handleChange={handleChange}
           />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={12} sm={6}>
           <Input
             value={formData.email}
             label='Email'
@@ -73,7 +81,7 @@ export const ContactForm = (props: IProps) => {
             handleChange={handleChange}
           />          
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={12} sm={6}>
           <Input
             value={formData.company}
             label='Empresa'
@@ -81,7 +89,7 @@ export const ContactForm = (props: IProps) => {
             handleChange={handleChange}
           />          
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={12} sm={6}>
           <Input
             value={formData.phone}
             label='Fone'
@@ -97,8 +105,8 @@ export const ContactForm = (props: IProps) => {
             handleChange={handleChange}
           />          
         </Grid>
-        <Grid item xs={12}>
-          <Button type='submit'>Enviar</Button>
+        <Grid item xs={12} sx={{ display: 'flex' }}>
+          <Button type='submit' sx={{ mx: 'auto' }}>Enviar</Button>
         </Grid>
       </Grid>
     </Box>

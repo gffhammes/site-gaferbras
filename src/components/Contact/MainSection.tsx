@@ -8,7 +8,7 @@ interface IProps { }
 export const MainSection = (props: IProps) => {
   return (
     <Box bgcolor='var(--light-grey)'>
-      <Container sx={{ py: 10 }}>
+      <Container sx={{ py: 10 }} maxWidth='md'>
         <TitleAndText
           title='Contato'
           text='Mande sua mensagem que responderemos o mais rápido possível!'  

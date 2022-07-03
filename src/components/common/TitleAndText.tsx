@@ -8,7 +8,7 @@ interface IProps {
 
 export const TitleAndText = ({ title, text }: IProps) => {
   return (
-    <Box sx={{ color: 'primary.main' }}>          
+    <Box sx={{ color: 'primary.main', mb: 5 }}>          
       <Typography
         textAlign='center'
         fontSize={40}
