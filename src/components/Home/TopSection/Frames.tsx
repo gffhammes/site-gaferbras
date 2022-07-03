@@ -47,6 +47,15 @@ export const Frames = (props: IProps) => {
               <Typography fontSize={19} fontWeight={500}sx={{ color: 'white', position: 'absolute', bottom: 0, m: 2, zIndex: 200 }}>{frame.title}</Typography>
               <Box className='overlay' sx={{ position: 'absolute', height: '100%', width: '100%', transition: 'opacity .2s ease', opacity: 0 }}>
                 <Box
+                  className='frame-overlay'
+                  sx={{
+                    position: 'absolute',
+                    height: '100%',
+                    width: '100%',
+                    backgroundColor: '#E83924',
+                  }}
+                />
+                <Box
                   className='frame-image'
                   sx={{
                     position: 'absolute',
@@ -55,16 +64,8 @@ export const Frames = (props: IProps) => {
                     backgroundImage: 'url(/images/gaferbras-1.jpg)',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
-                  }}
-                />
-                <Box
-                  className='frame-overlay'
-                  sx={{
-                    position: 'absolute',
-                    height: '100%',
-                    width: '100%',
-                    backgroundColor: '#E83924',
-                    mixBlendMode: 'hard-light',
+                    mixBlendMode: 'overlay',
+                    opacity: .52,
                   }}
                 />
               </Box>
