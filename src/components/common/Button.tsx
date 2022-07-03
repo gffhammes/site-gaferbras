@@ -2,17 +2,17 @@ import React from 'react';
 import { styled } from '@mui/material/styles';
 import MuiButton, { ButtonProps } from '@mui/material/Button';
 
-const ColorButton = styled(MuiButton)<ButtonProps>(() => ({
+const ColorButton = styled(MuiButton)<ButtonProps>((props) => ({
   color: 'white',
-  backgroundColor: 'primary.main',
+  // backgroundColor: props.color ? props.color : 'primary.main',
   borderRadius: '0',
   '&:hover': {
-    backgroundColor: 'primary.dark',
+    // backgroundColor: 'primary.dark',
   },
 }));
 
-export default function Button({ children, startIcon, ...props }: ButtonProps) {
+export default function Button({ children, startIcon, color, ...props }: ButtonProps) {
   return (
-    <ColorButton {...props} variant="contained" startIcon={startIcon}>{children}</ColorButton>
+    <ColorButton {...props} variant="contained" color={color} startIcon={startIcon}>{children}</ColorButton>
   );
 }

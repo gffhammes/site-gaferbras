@@ -7,6 +7,8 @@ import Instagram from '../../../../public/vectors/instagram.svg'
 import Linkedin from '../../../../public/vectors/linkedin.svg'
 import Image from 'next/image'
 import { Copyright } from './Copyright'
+import { mapsLink } from '../../../constants/links'
+import { BackToTop } from './BackToTop'
 
 interface IProps { }
 
@@ -14,7 +16,7 @@ const infos = [
   {
     text: `Rua Santa Edviges, 272 - Vila Nova
 89237-210 - Joinville/SC`,
-    href: 'https://www.google.com/maps/place/Gaferbras+Industrial+Ltda/@-26.2850799,-48.9002685,15z/data=!4m2!3m1!1s0x0:0xb4f8d06489b44dd4?sa=X&ved=2ahUKEwiE2PzYisT4AhVYDrkGHaCMCK0Q_BJ6BAgzEAU',
+    href: mapsLink,
   },
   {
     text: '(47) 3433-1500',
@@ -53,7 +55,8 @@ const titleProps = {
 
 export const Footer = (props: IProps) => {
   return (
-    <Box component='footer'>    
+    <Box component='footer'>
+      <BackToTop />
       <Box bgcolor='primary.main'>
         <Container sx={{ py: 5, color: 'white' }}>
           <Box sx={{ position: 'relative', height: '6rem', width: '14rem', mb: { xs: 5, md: 2} }}>

@@ -9,7 +9,7 @@ export const Text = (props: IProps) => {
   return (
     <Box>
       <Typography
-        fontSize={44}
+        fontSize={50}
         lineHeight={1.3}
         sx={{
           maxWidth: '14ch',

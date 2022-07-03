@@ -9,7 +9,13 @@ export const ContactSection = (props: IProps) => {
   return (
     <Box bgcolor='var(--light-grey)'>
       <Container sx={{ py: 10 }} maxWidth='md'>
-        <Stack direction={{ xs: 'column', md: 'row'}} justifyContent='space-between' alignItems='center' spacing={8}>
+        <Stack
+          direction={{ xs: 'column', md: 'row' }}
+          justifyContent='space-between'
+          alignItems={{ xs: 'flex-start', md: 'center' }}
+          spacing={8}
+          sx={{ width: 'fit-content', mx: 'auto' }}
+        >
           <Text />
           <Contact />
         </Stack>        

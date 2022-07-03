@@ -1,0 +1,1 @@
+export const mapsLink = 'https://www.google.com/maps/place/Gaferbras+Industrial+Ltda/@-26.2850799,-48.9002685,15z/data=!4m2!3m1!1s0x0:0xb4f8d06489b44dd4?sa=X&ved=2ahUKEwiE2PzYisT4AhVYDrkGHaCMCK0Q_BJ6BAgzEAU'
