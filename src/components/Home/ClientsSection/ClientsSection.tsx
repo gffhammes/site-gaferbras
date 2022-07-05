@@ -29,7 +29,12 @@ const sxLogo = {
     sm: '4rem',
   },
   width: '12rem',
-  m: 'auto'
+  m: 'auto',
+  filter: 'contrast(0)',
+  transition: '.5s ease all',
+  '&:hover': {
+    filter: 'contrast(1)',
+  }
 }
 
 export const ClientsSection = (props: IProps) => {

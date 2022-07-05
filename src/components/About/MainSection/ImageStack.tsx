@@ -3,6 +3,7 @@ import Image from 'next/image'
 import React from 'react'
 import PrimaryArrow from '../../../../public/vectors/arrow-up-right-primary.svg'
 import SecondaryArrow from '../../../../public/vectors/arrow-up-right-secondary.svg'
+import { ScrollAppearMotion } from '../../common/motion/ScrollAppearMotion'
 
 interface IProps { }
 
@@ -22,10 +23,16 @@ const Card = ({ children, bgColor }: ICardProps) => {
         width: '100%',
         color: 'white',
         position: 'relative',
+        cursor: 'pointer',
+        '&:hover': {
+          '& .arrow': {
+            p: 3
+          }
+        },
       }}
     >
       <Typography fontSize={{ xs: 24, md: 48}} lineHeight={1} sx={{ p: cardPadding }}>{children}</Typography>
-      <Box sx={{ position: 'absolute', top: 0, right: 0, p: cardPadding }}>
+      <Box className='arrow' sx={{ position: 'absolute', top: 0, right: 0, p: cardPadding, transition: '.5s ease all', }}>
         {bgColor === 'primary' ? <SecondaryArrow /> : <PrimaryArrow />}
       </Box>
     </Box>
@@ -35,16 +42,22 @@ const Card = ({ children, bgColor }: ICardProps) => {
 export const ImageStack = (props: IProps) => {
   return (
     <Stack>
-      <Box sx={{ position: 'relative', width: { xs: '100%', md: '33rem' }, height: '20rem' }}>        
-        <Image
-          src='/images/gaferbras-1.jpg'
-          alt='Gaferbras'
-          layout='fill'
-          objectFit='cover'
-        />
-      </Box>
-      <Card bgColor='secondary'>Mais de<br/><strong>25 anos</strong> de<br/>história</Card>
-      <Card bgColor='primary'>Mais de<br/><strong>1500 projetos</strong><br/>desenvolvidos</Card>
+      <ScrollAppearMotion>
+        <Box sx={{ position: 'relative', width: { xs: '100%', md: '33rem' }, height: '20rem' }}>        
+          <Image
+            src='/images/gaferbras-1.jpg'
+            alt='Gaferbras'
+            layout='fill'
+            objectFit='cover'
+          />
+        </Box>
+      </ScrollAppearMotion>
+      <ScrollAppearMotion delay={0.8}>
+        <Card bgColor='secondary'>Mais de<br/><strong>25 anos</strong> de<br/>história</Card>
+      </ScrollAppearMotion>
+      <ScrollAppearMotion delay={1.2}>
+        <Card bgColor='primary'>Mais de<br/><strong>1500 projetos</strong><br/>desenvolvidos</Card>
+      </ScrollAppearMotion>
     </Stack>
   )
 }

@@ -2,12 +2,13 @@ import { Box, Container, Stack, Typography } from '@mui/material'
 import React from 'react'
 import Button from '../../common/Button'
 import WhatsApp from '../../../../public/vectors/whatsapp.svg'
+import { ScrollAppearMotion } from '../../common/motion/ScrollAppearMotion'
 
 interface IProps { }
 
 export const Text = (props: IProps) => {
   return (
-    <Box>
+    <ScrollAppearMotion>
       <Typography
         fontSize={50}
         lineHeight={1.3}
@@ -20,6 +21,6 @@ export const Text = (props: IProps) => {
         Entre em contato e solicite o seu <strong>orçamento!</strong>
       </Typography>
       <Button startIcon={<WhatsApp />}>WhatsApp</Button>
-    </Box>
+    </ScrollAppearMotion>
   )
 }

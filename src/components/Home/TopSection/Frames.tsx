@@ -1,6 +1,6 @@
 import { Box, Grid, Typography } from '@mui/material'
 import React from 'react'
-import { DefaultAppearMotion } from '../../common/motion/DefaultAppearMotion'
+import { SlideFromBottomAppearMotion } from '../../common/motion/DefaultAppearMotion'
 
 interface IProps { }
 
@@ -42,7 +42,7 @@ export const Frames = (props: IProps) => {
     <Grid container spacing={1} sx={{ position: 'relative', zIndex: 200 }} id='serviços'>
       {frames.map((frame, index) => (
         <Grid item xs={6} md={3} key={index}>
-          <DefaultAppearMotion delay={((index + 1) * .4) + 1.2}>
+          <SlideFromBottomAppearMotion delay={((index + 1) * .4) + 1.2}>
             <Box bgcolor='#D1D4F0' sx={sxFrame}>
               <Typography fontSize={19} fontWeight={500}sx={{ color: 'white', position: 'absolute', bottom: 0, m: 2, zIndex: 200 }}>{frame.title}</Typography>
               <Box className='overlay' sx={{ position: 'absolute', height: '100%', width: '100%', transition: 'opacity .2s ease', opacity: 0 }}>
@@ -70,7 +70,7 @@ export const Frames = (props: IProps) => {
                 />
               </Box>
             </Box>
-          </DefaultAppearMotion>
+          </SlideFromBottomAppearMotion>
         </Grid>
       ))}
     </Grid>

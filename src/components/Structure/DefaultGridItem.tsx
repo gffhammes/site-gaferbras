@@ -1,10 +1,12 @@
 import { Box, Container, Grid, Stack, SxProps, Theme, Typography } from '@mui/material'
 import Image from 'next/image'
 import React from 'react'
+import { ScrollAppearOpacityMotion } from '../common/motion/ScrollAppearMotion';
 
 interface IDefaultGridItemProps {
   image: string;
   text: string;
+  delay: number;
   height?: boolean;
   xs?: number;
   sm?: number;
@@ -37,25 +39,27 @@ const sxTextBlock: SxProps<Theme> = {
   width: '100%', height: '100%', color: 'white', display: 'flex', backgroundColor: 'primary.main'
 }
 
-export const DefaultGridItem = ({ image, text, height=false, xs, sm, md, lg, xl }: IDefaultGridItemProps) => {
+export const DefaultGridItem = ({ image, text, height=false, delay, xs, sm, md, lg, xl }: IDefaultGridItemProps) => {
 
   return (
     <Grid item xs={xs} sm={sm} md={md} lg={lg} xl={xl} >
-      <Box sx={{ ...sxBox, height: height ? '100%' : 'unset', aspectRatio: height ? 'unset' : '1 / 1' }}>
-        <Stack sx={sxStack}>
-          <Box sx={sxImage}>
-            <Image
-              src={image}
-              alt={text}
-              layout='fill'
-              objectFit='cover'
-            />
-          </Box>
-          <Box sx={sxTextBlock}>
-            <Typography textAlign='center' fontSize={20} sx={{ m: 'auto', maxWidth: '15ch' }}>{text}</Typography>
-          </Box>
-        </Stack>
-      </Box>
+      <ScrollAppearOpacityMotion delay={delay}>
+        <Box sx={{ ...sxBox, height: height ? '100%' : 'unset', aspectRatio: height ? 'unset' : '1 / 1' }}>
+          <Stack sx={sxStack}>
+            <Box sx={sxImage}>
+              <Image
+                src={image}
+                alt={text}
+                layout='fill'
+                objectFit='cover'
+              />
+            </Box>
+            <Box sx={sxTextBlock}>
+              <Typography textAlign='center' fontSize={20} sx={{ m: 'auto', maxWidth: '15ch' }}>{text}</Typography>
+            </Box>
+          </Stack>
+        </Box>
+      </ScrollAppearOpacityMotion>
     </Grid>
   )
 }
