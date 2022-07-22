@@ -9,16 +9,40 @@ const clients = [
     logo: 'logo-whirlpool.png',
   },
   {
-    name: 'Tritec',
-    logo: 'logo-tritec.png',
-  },
-  {
     name: 'Tigre',
     logo: 'logo-tigre.png',
   },
   {
     name: 'WEG',
     logo: 'logo-weg.png',
+  },
+  {
+    name: 'Plastibrasil',
+    logo: 'logo-plastibrasil.png',
+  },
+  {
+    name: 'DMX Móveis',
+    logo: 'logo-dmx.png',
+  },
+  {
+    name: 'Krenke Brinquedos',
+    logo: 'logo-krenke.png',
+  },
+  {
+    name: 'Britania',
+    logo: 'logo-britania.png',
+  },
+  {
+    name: 'Central Pack',
+    logo: 'logo-centralpack.png',
+  },
+  {
+    name: 'Plasnorthon',
+    logo: 'logo-plasnorthon.png',
+  },
+  {
+    name: 'Kohls',
+    logo: 'logo-kohls.png',
   },
 ]
 

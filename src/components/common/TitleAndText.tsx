@@ -18,7 +18,7 @@ export const TitleAndText = ({ title, text }: IProps) => {
       <Typography
         textAlign='center'
         fontSize={22}
-        sx={{ maxWidth: '34ch', mx:'auto' }}
+        sx={{ maxWidth: '35ch', mx:'auto' }}
         dangerouslySetInnerHTML={{ __html: text }}
       />
     </Box>

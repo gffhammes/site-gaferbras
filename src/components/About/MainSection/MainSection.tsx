@@ -5,7 +5,7 @@ import { ImageStack } from './ImageStack'
 
 interface IProps { }
 
-const text = `A Gaferbras é uma empresa consolidada na área de ferramentaria, que iniciou as suas operações em 1995 e hoje soma mais de 25 anos de experiência, com mais de 300 clientes atendidos em todo o país.
+const text = `A Gaferbras é uma empresa consolidade na área de ferramentaria, que iniciou as suas operações em 1995 e hoje soma mais de 25 anos de experiência com mais de 300 clientes atendidos em toda a América Latina!
 
 Desde o início, nosso objetivo é proporcionar a melhor solução em ferramentais, unindo eficiência, tecnologia e qualidade. O compromisso com os nossos valores, dia após dia, proporcionaram o crescimento da empresa e a sua solidificação no mercado.
 

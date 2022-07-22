@@ -13,7 +13,7 @@ export const MainSection = (props: IProps) => {
         <SlideFromLeftAppearMotion delay={.4}>
           <TitleAndText
             title='Estrutura'
-            text='Para suprir a sua necessidade contamos com um parque fabril completo de <strong>140m²</strong>'
+            text='Para suprir a sua necessidade contamos com um parque fabril completo de <strong>1000m²</strong>'
           />
         </SlideFromLeftAppearMotion>  
         <StructureGrid />

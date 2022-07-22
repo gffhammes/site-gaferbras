@@ -9,7 +9,7 @@ export const LeftImage = (props: IProps) => {
     <Box sx={{ position: 'absolute', top: 0, right: 0, height: 'calc(100% + 5rem)', width: '48vw', }}>
       <Box sx={{ position: 'relative', width: '100%', height: '100%' }}>        
         <Image  
-          src='/images/gaferbras-1.jpg'
+          src='/images/gaferbras-home.jpg'
           alt='Gaferbras'
           layout='fill'
           objectFit='cover'

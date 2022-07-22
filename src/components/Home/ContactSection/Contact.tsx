@@ -31,10 +31,10 @@ export const Contact = (props: IProps) => {
         </a>
       </ScrollAppearMotion>
       <ScrollAppearMotion delay={1.6}>
-        <a href='mailto:contato@gaferbras.com.br' target='_blank' rel="noreferrer" style={{ width: 'fit-content' }}>
+        <a href='mailto:gaferbras@gaferbras.com.br' target='_blank' rel="noreferrer" style={{ width: 'fit-content' }}>
           <Stack spacing={2} direction='row' alignItems='center'>
             <Mail />
-            <Typography fontSize={21} >contato@gaferbras.com.br</Typography>
+            <Typography fontSize={21} >gaferbras@gaferbras.com.br</Typography>
           </Stack>
         </a>
       </ScrollAppearMotion>

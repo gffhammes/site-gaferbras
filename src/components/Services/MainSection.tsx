@@ -10,31 +10,25 @@ const options = [
   {
     group: 'Ferramentaria',
     title: 'Ferramentais',
-    text: 'Possuímos uma estrutura moderna para o desenvolvimento e confecção de moldes de pequeno e médio porte <strong>(até 10 toneladas)</strong>. Oferecemos assistência desde o estudo e desenvolvimento do projeto do produto até a simulação de injeção e o projeto final do ferramental, adequando-o às necessidades do cliente.<br/>Todo o processo é realizado com acompanhamento do cliente através dos cronogramas, fotos e/ou visitas.',
+    text: 'Possuímos uma estrutura moderna para o desenvolvimento e confecção de moldes de pequeno e médio porte <strong>(até 10 toneladas)</strong>.',
     image: '/images/gaferbras-1.jpg',
   },
   {
     group: 'Ferramentaria',
     title: 'Manutenção<br/>& Alterações',
-    text: 'Possuímos uma estrutura moderna para o desenvolvimento e confecção de moldes de pequeno e médio porte <strong>(até 10 toneladas)</strong>. Oferecemos assistência desde o estudo e desenvolvimento do projeto do produto até a simulação de injeção e o projeto final do ferramental, adequando-o às necessidades do cliente.<br/>Todo o processo é realizado com acompanhamento do cliente através dos cronogramas, fotos e/ou visitas.',
+    text: 'Dispomos de estrutura para manutenção e alterações de moldes de pequeno e médio porte ate 10 toneladas.<br/>Oferecemos assistência desde a alteração do projeto do produto, até a alteração do projeto final do ferramental, adequando-o a necessidade e estrutura do equipamento e parque fabril do cliente.<br/>A adequação acontece no melhor prazo com acompanhamento do cliente através de cronogramas, fotos ou visitas.<br/>A Gaferbras dispõe de injetoras para realização de Tryout, para o caso de moldes para termoplásticos, para outros tipos de ferramentais, pode ser feito diretamente no cliente ou em outros fornecedores credenciados pela Gaferbras.',
     image: '/images/gaferbras-1.jpg',
   },
   {
     group: 'Ferramentaria',
     title: 'Peças de reposição<br/>& Usinagem',
-    text: 'Possuímos uma estrutura moderna para o desenvolvimento e confecção de moldes de pequeno e médio porte <strong>(até 10 toneladas)</strong>. Oferecemos assistência desde o estudo e desenvolvimento do projeto do produto até a simulação de injeção e o projeto final do ferramental, adequando-o às necessidades do cliente.<br/>Todo o processo é realizado com acompanhamento do cliente através dos cronogramas, fotos e/ou visitas.',
+    text: 'Usinamos peças de reposição através do projeto ou modelamento fornecido pelo cliente ou desenvolvemos o desenho copiando a peça original ou avariada.<br/>Todo o processo é realizado no melhor prazo, com acompanhamento do cliente através de cronogramas, fotos e/ou visitas.',
     image: '/images/gaferbras-1.jpg',
   },
   {
     group: 'Injeção',
     title: 'Injeção & Tryout<br/>de moldes',
-    text: 'Possuímos uma estrutura moderna para o desenvolvimento e confecção de moldes de pequeno e médio porte <strong>(até 10 toneladas)</strong>. Oferecemos assistência desde o estudo e desenvolvimento do projeto do produto até a simulação de injeção e o projeto final do ferramental, adequando-o às necessidades do cliente.<br/>Todo o processo é realizado com acompanhamento do cliente através dos cronogramas, fotos e/ou visitas.',
-    image: '/images/gaferbras-1.jpg',
-  },
-  {
-    group: 'Injeção',
-    title: 'Produtos injetados<br/>Gaferbras',
-    text: 'Possuímos uma estrutura moderna para o desenvolvimento e confecção de moldes de pequeno e médio porte <strong>(até 10 toneladas)</strong>. Oferecemos assistência desde o estudo e desenvolvimento do projeto do produto até a simulação de injeção e o projeto final do ferramental, adequando-o às necessidades do cliente.<br/>Todo o processo é realizado com acompanhamento do cliente através dos cronogramas, fotos e/ou visitas.',
+    text: 'Nosso parque fabril oferece injetoras com capacidade de 130, 230 e 330 toneladas de fechamento e injeção de até 1085 gramas, bem como todos os periféricos necessários para qualificar nosso serviço.<br/>Também contamos com uma equipe técnica com larga experiência para testes e injeção em maiores escalas nos mais variados polímeros e tipos de moldes.',
     image: '/images/gaferbras-1.jpg',
   },
 ]
