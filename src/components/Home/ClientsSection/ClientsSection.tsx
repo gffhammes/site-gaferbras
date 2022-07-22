@@ -1,6 +1,7 @@
 import { Box, Container, Grid, Typography } from '@mui/material'
 import Image from 'next/image'
 import React from 'react'
+import { EmblaCarousel } from '../../common/EmblaCarousel'
 interface IProps { }
 
 const clients = [
@@ -61,11 +62,23 @@ const sxLogo = {
   }
 }
 
-export const ClientsSection = (props: IProps) => {
+const slides = clients.map(client => (
+  <Box sx={sxLogo} key={client.name}>
+    <Image
+      src={`/images/clientes/${client.logo}`}
+      alt={client.name}
+      layout='fill'
+      objectFit='contain'
+    />
+  </Box>
+))
+
+export const ClientsSection = (props: IProps) => {  
   return (
     <Box bgcolor='var(--light-grey)'>
       <Container sx={{ py: 5, mt: { xs: 10, md: 20 } }}>
-        <Grid container spacing={{ xs: 5, sm: 10, lg: 5}}>
+        <EmblaCarousel slides={slides} options={{ align: 0, loop: true }} />
+        {/* <Grid container spacing={{ xs: 5, sm: 10, lg: 5}}>
           {clients.map(client => (
             <Grid item key={client.name} xs={6} md={3} sx={{ display: 'flex' }} >
               <Box sx={sxLogo}>
@@ -78,7 +91,7 @@ export const ClientsSection = (props: IProps) => {
               </Box>
             </Grid>
           ))}
-        </Grid>
+        </Grid> */}
       </Container>
     </Box>
   )
