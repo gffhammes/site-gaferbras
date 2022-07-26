@@ -3,15 +3,17 @@ import React from 'react'
 import { TitleAndText } from '../common/TitleAndText'
 import { ContactForm } from './ContactForm'
 
-interface IProps { }
+interface IProps {
+  data: any;
+}
 
-export const MainSection = (props: IProps) => {
+export const MainSection = ({ data }: IProps) => {
   return (
     <Box bgcolor='var(--light-grey)'>
       <Container sx={{ py: 10 }} maxWidth='md'>
         <TitleAndText
-          title='Contato'
-          text='Mande sua mensagem que responderemos o mais rápido possível!'  
+          title={data.attributes.titulo}
+          text={data.attributes.h1} 
         />
         <ContactForm />
       </Container>
