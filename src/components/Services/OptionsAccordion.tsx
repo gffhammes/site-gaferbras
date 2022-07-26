@@ -10,7 +10,7 @@ interface IProps {
   group: string;
   handleOptionChange: (newOption: any) => void;}
 
-export const OptionsAccordion = ({ options, selectedOption, group, handleOptionChange}: IProps) => {
+export const OptionsAccordion = ({ options, selectedOption, group, handleOptionChange }: IProps) => {
   const { mdSize } = useBreakPoint();
 
   const color = group === 'Ferramentaria' ? 'primary.main' : 'secondary.main';
@@ -28,10 +28,10 @@ export const OptionsAccordion = ({ options, selectedOption, group, handleOptionC
               return (
                 <Stack key={index} direction='row' alignItems='center' justifyContent='space-between' sx={{ cursor: 'pointer', '&:hover > p': { transform: 'translateX(5px)' } }} onClick={() => {handleOptionChange(option)}}>
                   <Typography
-                    sx={{ color, transition: '200ms ease all' }}
+                    sx={{ color, transition: '200ms ease all', maxWidth: '16ch' }}
                     fontWeight={isActiveOption ? 600 : 400}
                     lineHeight={1}
-                    dangerouslySetInnerHTML={{ __html: option.title }}
+                    dangerouslySetInnerHTML={{ __html: option.attributes.titulo }}
                   />
                   {isActiveOption && <Box bgcolor={color} sx={{ height: '.5rem', width: '.5rem', borderRadius: '1rem' }} />}
                 </Stack>
