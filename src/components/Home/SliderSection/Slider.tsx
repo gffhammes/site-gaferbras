@@ -6,7 +6,9 @@ import Image from 'next/image'
 import RightArrow from '../../../../public/vectors/right-arrow-black.svg'
 import LeftArrow from '../../../../public/vectors/left-arrow-black.svg'
 
-type Props = {}
+type Props = {
+  images: string[];
+}
 
 const sxEmbla = {
   overflow: 'hidden',
@@ -28,16 +30,7 @@ const sxEmblaSlide = {
   mr: 2
 }
 
-const slides = [
-  '/images/gaferbras-1.jpg',
-  '/images/gaferbras-1.jpg',
-  '/images/gaferbras-1.jpg',
-  '/images/gaferbras-1.jpg',
-  '/images/gaferbras-1.jpg',
-  '/images/gaferbras-1.jpg',
-]
-
-const Slider = (props: Props) => {  
+const Slider = ({ images }: Props) => {  
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, draggable: false })
   const [selectedSlide, setSelectedSlide] = useState(0)
   
@@ -58,7 +51,7 @@ const Slider = (props: Props) => {
     <Box sx={{ position: 'relative' }}>
       <Box sx={sxEmbla} ref={emblaRef}>
         <Box sx={sxEmblaContainer}>
-          {slides.map((slide, index) => {
+          {images.map((slide, index) => {
             const isActiveSlide = index === selectedSlide;
             return (
               <Box sx={sxEmblaSlide} key={index}>

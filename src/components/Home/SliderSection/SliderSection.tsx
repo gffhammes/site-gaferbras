@@ -3,11 +3,19 @@ import React, { useEffect } from 'react'
 import { ScrollAppearMotion, ScrollAppearOpacityMotion } from '../../common/motion/ScrollAppearMotion'
 import Slider from './Slider'
 
-interface IProps { }
+interface IProps {
+  data: {
+    text: string;
+    images: string[];
+  };
+}
 
-const text = `Estrutura moderna com equipamentos de <strong>última geração</strong>`
-
-export const SliderSection = (props: IProps) => {
+export const SliderSection = ({
+  data: {
+    text,
+    images
+  }
+}: IProps) => {
 
   return (
     <Box sx={{ py: 10 }}>
@@ -33,7 +41,7 @@ export const SliderSection = (props: IProps) => {
         </Box>
       </Container>
       <ScrollAppearOpacityMotion >
-        <Slider />
+        <Slider images={images} />
       </ScrollAppearOpacityMotion>
     </Box>
   )

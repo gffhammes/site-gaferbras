@@ -5,9 +5,9 @@ import ChevronsDown from '../../../../public/vectors/chevrons-down.svg'
 import { scrollToTarget } from '../../../helpers/scrollToTarget'
 import { SlideFromLeftAppearMotion } from '../../common/motion/DefaultAppearMotion'
 
-interface IProps { }
-
-const HomeTopSectionText = 'Atuando há mais de 25 anos com excelência no mercado industrial!'
+interface IProps {
+  h1: string;
+}
 
 const sxMoreButton = {
   cursor: 'pointer',
@@ -34,14 +34,14 @@ const sxMoreButtonText = {
   }
 }
 
-export const Text = (props: IProps) => {
+export const Text = ({ h1 }: IProps) => {
   return (
     <Box sx={{ maxWidth: { xs: '100%', md: '50ch'}, pt: { xs: 5, md: 10 }, mb: 6 }}>
       <SlideFromLeftAppearMotion delay={.4}>
         <Typography fontSize={{ xs: 16, sm: 19, md: 24 }} fontWeight={600} sx={{ color: 'secondary.main' }}>Gaferbras</Typography>
       </SlideFromLeftAppearMotion>
       <SlideFromLeftAppearMotion delay={.8}>        
-        <Typography variant='h1' sx={{ color: 'primary.main', mb: 6 }}>{HomeTopSectionText}</Typography>
+        <Typography variant='h1' sx={{ color: 'primary.main', mb: 6 }} dangerouslySetInnerHTML={{ __html: h1 }} />
       </SlideFromLeftAppearMotion>
       <SlideFromLeftAppearMotion delay={1.2}>  
         <Stack direction='row' alignItems='center' spacing={1} sx={sxMoreButton} onClick={() => scrollToTarget('serviços')}>

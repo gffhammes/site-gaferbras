@@ -5,19 +5,34 @@ import { Frames } from './Frames'
 import { LeftImage } from './LeftImage'
 import { Text } from './Text'
 
-interface IProps { }
+interface IProps {
+  data: {
+    h1: string;
+    cards: {
+      imageSrc: string;
+      text: string;
+    }[],
+    leftImageSrc: string;
+  }
+}
 
 
-export const TopSection = (props: IProps) => {
+export const TopSection = ({
+  data: {
+    h1,
+    cards,
+    leftImageSrc,
+  }
+}: IProps) => {
   const { mdSize } = useBreakPoint();
-
+  
   return (
     <Box bgcolor='#F8F8FD' sx={{ position: 'relative' }}>
       <Container>
-        <Text />
-        <Frames />
+        <Text h1={h1} />
+        <Frames cards={cards} />
       </Container>
-      {mdSize && <LeftImage />}
+      {mdSize && <LeftImage imageSrc={leftImageSrc} />}
     </Box>
   )
 }
