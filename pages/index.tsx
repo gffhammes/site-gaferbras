@@ -9,8 +9,6 @@ import qs from 'qs';
 import axios from 'axios'
 
 const Home: NextPage = ({ data }: any) => {
-  console.log(data)
-
   const { h1, cardsTopo, imagemTopo, tituloGaleria, galeria, textoContato } = data.attributes;
 
   const topSectionData = {
