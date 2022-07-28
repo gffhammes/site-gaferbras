@@ -11,7 +11,7 @@ import axios from 'axios'
 const Home: NextPage = ({ data }: any) => {
   console.log(data)
 
-  const { h1, cardsTopo, imagemTopo, tituloGaleria, galeria } = data.attributes;
+  const { h1, cardsTopo, imagemTopo, tituloGaleria, galeria, textoContato } = data.attributes;
 
   const topSectionData = {
     h1: h1,
@@ -40,13 +40,17 @@ const Home: NextPage = ({ data }: any) => {
     text: tituloGaleria,
     images: galeria.data.map((image: any) => image.attributes.url),
   }
+  
+  const contactSectionData = {
+    text: textoContato,
+  }
 
   return (
     <>
       <TopSection data={topSectionData} />
       <ClientsSection />
       <SliderSection data={sliderSectionData} />
-      <ContactSection />
+      <ContactSection data={contactSectionData} />
       <MapsSection />
     </>
   )

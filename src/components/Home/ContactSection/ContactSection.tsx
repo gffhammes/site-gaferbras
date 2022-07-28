@@ -3,9 +3,17 @@ import React from 'react'
 import { Contact } from './Contact'
 import { Text } from './Text'
 
-interface IProps { }
+interface IProps {
+  data: {
+    text: string;
+  }
+}
 
-export const ContactSection = (props: IProps) => {
+export const ContactSection = ({
+  data: {
+    text
+  }
+}: IProps) => {
   return (
     <Box bgcolor='var(--light-grey)'>
       <Container sx={{ py: 10 }} maxWidth='md'>
@@ -16,7 +24,7 @@ export const ContactSection = (props: IProps) => {
           spacing={8}
           sx={{ width: 'fit-content', mx: 'auto' }}
         >
-          <Text />
+          <Text text={text} />
           <Contact />
         </Stack>        
       </Container>

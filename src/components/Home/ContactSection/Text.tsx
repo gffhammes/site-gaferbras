@@ -4,9 +4,11 @@ import Button from '../../common/Button'
 import WhatsApp from '../../../../public/vectors/whatsapp.svg'
 import { ScrollAppearMotion } from '../../common/motion/ScrollAppearMotion'
 
-interface IProps { }
+interface IProps {
+  text: string;
+}
 
-export const Text = (props: IProps) => {
+export const Text = ({ text }: IProps) => {
   return (
     <ScrollAppearMotion>
       <Typography
@@ -17,9 +19,8 @@ export const Text = (props: IProps) => {
           color: 'primary.main',
           mb: 2
         }}
-      >
-        Entre em contato e solicite o seu <strong>orçamento!</strong>
-      </Typography>
+        dangerouslySetInnerHTML={{ __html: text }}
+      />
       <Button startIcon={<WhatsApp />}>WhatsApp</Button>
     </ScrollAppearMotion>
   )
