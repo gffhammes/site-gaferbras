@@ -46,7 +46,7 @@ export const StructureGrid = ({ cards }: IProps) => {
               return (
                 <DefaultGridItem
                   key={index}
-                  xs={12}
+                  xs={6}
                   md={6}
                   image={card.imageSrc}
                   text={card.text}
@@ -75,7 +75,7 @@ export const StructureGrid = ({ cards }: IProps) => {
             delay={0.4}
             height
           />}
-          
+
         </Grid>
       ))}
     </Grid>

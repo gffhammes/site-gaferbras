@@ -1,6 +1,7 @@
 import { Box, Container, Grid, Stack, SxProps, Theme, Typography } from '@mui/material'
 import Image from 'next/image'
 import React from 'react'
+import { useBreakPoint } from '../../hooks/useBreakPoint';
 import { ScrollAppearOpacityMotion } from '../common/motion/ScrollAppearMotion';
 
 interface IDefaultGridItemProps {
@@ -40,11 +41,12 @@ const sxTextBlock: SxProps<Theme> = {
 }
 
 export const DefaultGridItem = ({ image, text, height=false, delay, xs, sm, md, lg, xl }: IDefaultGridItemProps) => {
+  const { mdSize } = useBreakPoint()
 
   return (
     <Grid item xs={xs} sm={sm} md={md} lg={lg} xl={xl} >
       <ScrollAppearOpacityMotion delay={delay}>
-        <Box sx={{ ...sxBox, height: height ? '100%' : 'unset', aspectRatio: height ? 'unset' : '1 / 1' }}>
+        <Box sx={{ ...sxBox, height: height ? '100%' : 'unset', aspectRatio: height && mdSize ? 'unset' : '1 / 1' }}>
           <Stack sx={sxStack}>
             <Box sx={sxImage}>
               <Image
@@ -56,7 +58,7 @@ export const DefaultGridItem = ({ image, text, height=false, delay, xs, sm, md, 
               />
             </Box>
             <Box sx={sxTextBlock}>
-              <Typography textAlign='center' fontSize={20} sx={{ m: 'auto', maxWidth: '15ch' }}>{text}</Typography>
+              <Typography lineHeight={1.2} textAlign='center' fontSize={20} sx={{ m: 'auto', width: '90%', maxWidth: '15ch' }}>{text}</Typography>
             </Box>
           </Stack>
         </Box>
