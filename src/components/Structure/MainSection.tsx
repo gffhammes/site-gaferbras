@@ -2,13 +2,13 @@ import { Box, Container } from '@mui/material'
 import React from 'react'
 import { SlideFromLeftAppearMotion } from '../common/motion/DefaultAppearMotion'
 import { TitleAndText } from '../common/TitleAndText'
-import { ICardsProps, StructureGrid } from './StructureGrid'
+import { ICardProps, StructureGrid } from './StructureGrid'
 
 interface IProps {
   data: {
     title: string;
     h1: string;
-    cards: ICardsProps;
+    cards: ICardProps[];
   }
 }
 
