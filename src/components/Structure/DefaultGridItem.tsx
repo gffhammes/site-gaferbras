@@ -52,6 +52,7 @@ export const DefaultGridItem = ({ image, text, height=false, delay, xs, sm, md, 
                 alt={text}
                 layout='fill'
                 objectFit='cover'
+                priority={true}
               />
             </Box>
             <Box sx={sxTextBlock}>

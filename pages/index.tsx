@@ -9,7 +9,7 @@ import qs from 'qs';
 import axios from 'axios'
 
 const Home: NextPage = ({ data }: any) => {
-  const { h1, cardsTopo, imagemTopo, tituloGaleria, galeria, textoContato } = data.attributes;
+  const { h1, cardsTopo, imagemTopo, tituloGaleria, galeria, textoContato, clientes } = data.attributes;
 
   const topSectionData = {
     h1: h1,
@@ -43,10 +43,15 @@ const Home: NextPage = ({ data }: any) => {
     text: textoContato,
   }
 
+  const clientsData = clientes.data.map((cliente: any) => ({
+    name: cliente.attributes.nome,
+    logoSrc: cliente.attributes.logo.data.attributes.url,
+  }))
+
   return (
     <>
       <TopSection data={topSectionData} />
-      <ClientsSection />
+      <ClientsSection clients={clientsData} />
       <SliderSection data={sliderSectionData} />
       <ContactSection data={contactSectionData} />
       <MapsSection />
@@ -65,6 +70,7 @@ export async function getServerSideProps() {
       'cardsTopo.card3.foto',
       'cardsTopo.card4.foto',
       'galeria',
+      'clientes.logo',
     ]
   }, {
     encodeValuesOnly: true,

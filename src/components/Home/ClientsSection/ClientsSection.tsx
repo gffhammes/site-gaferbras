@@ -1,51 +1,14 @@
 import { Box, Container, Grid, Typography } from '@mui/material'
 import Image from 'next/image'
-import React from 'react'
+import React, { useMemo } from 'react'
 import { EmblaCarousel } from '../../common/EmblaCarousel'
-interface IProps { }
 
-const clients = [
-  {
-    name: 'Whirlpool',
-    logo: 'logo-whirlpool.png',
-  },
-  {
-    name: 'Tigre',
-    logo: 'logo-tigre.png',
-  },
-  {
-    name: 'WEG',
-    logo: 'logo-weg.png',
-  },
-  {
-    name: 'Plastibrasil',
-    logo: 'logo-plastibrasil.png',
-  },
-  {
-    name: 'DMX Móveis',
-    logo: 'logo-dmx.png',
-  },
-  {
-    name: 'Krenke Brinquedos',
-    logo: 'logo-krenke.png',
-  },
-  {
-    name: 'Britania',
-    logo: 'logo-britania.png',
-  },
-  {
-    name: 'Central Pack',
-    logo: 'logo-centralpack.png',
-  },
-  {
-    name: 'Plasnorthon',
-    logo: 'logo-plasnorthon.png',
-  },
-  {
-    name: 'Kohls',
-    logo: 'logo-kohls.png',
-  },
-]
+interface IProps {
+  clients: {
+    logoSrc: string;
+    name: string;
+  }[];
+}
 
 const sxLogo = {
   position: 'relative',
@@ -62,36 +25,24 @@ const sxLogo = {
   }
 }
 
-const slides = clients.map(client => (
-  <Box sx={sxLogo} key={client.name}>
-    <Image
-      src={`/images/clientes/${client.logo}`}
-      alt={client.name}
-      layout='fill'
-      objectFit='contain'
-    />
-  </Box>
-))
+export const ClientsSection = ({ clients }: IProps) => {  
+  const slidesMemo = useMemo(() => (
+    clients.map(client => (
+      <Box sx={sxLogo} key={client.name}>
+        <Image
+          src={client.logoSrc}
+          alt={client.name}
+          layout='fill'
+          objectFit='contain'
+        />
+      </Box>
+    ))
+  ), [clients])
 
-export const ClientsSection = (props: IProps) => {  
   return (
     <Box bgcolor='var(--light-grey)'>
       <Container sx={{ py: 5, mt: { xs: 10, md: 20 } }}>
-        <EmblaCarousel slides={slides} options={{ align: 0, loop: true }} />
-        {/* <Grid container spacing={{ xs: 5, sm: 10, lg: 5}}>
-          {clients.map(client => (
-            <Grid item key={client.name} xs={6} md={3} sx={{ display: 'flex' }} >
-              <Box sx={sxLogo}>
-                <Image
-                  src={`/images/clientes/${client.logo}`}
-                  alt={client.name}
-                  layout='fill'
-                  objectFit='contain'
-                />
-              </Box>
-            </Grid>
-          ))}
-        </Grid> */}
+        <EmblaCarousel slides={slidesMemo} options={{ align: 0, loop: true }} />
       </Container>
     </Box>
   )
