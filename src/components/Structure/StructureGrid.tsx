@@ -43,7 +43,7 @@ export const StructureGrid = ({ cards }: IProps) => {
           </Grid>
 
           <Grid item xs={12} md={4.5} container spacing={2}>
-            {cards.slice(1, 5).map((card, index) => {
+            {cards.slice(1, 5).map((card: ICardProps, index: number) => {
               return (
                 <Grid item xs={6} key={index}>
                   <Box sx={{ position: 'relative', width: '100%', aspectRatio: '1 / 1' }}>
@@ -60,7 +60,7 @@ export const StructureGrid = ({ cards }: IProps) => {
           </Grid>
 
           
-          {cards.slice(5, 8).map((card, index) => {
+          {cards.slice(5, 8).map((card: ICardProps, index: number) => {
             return (
               <Grid item xs={index === 2 ? 6 : 3} key={index}>
                 <Box sx={{ position: 'relative', height: index === 2 ? '100%' : 'unset', aspectRatio: index === 2 ? 'unset' : '1 / 1', width: '100%' }}>
