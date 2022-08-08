@@ -1,5 +1,6 @@
 import { Box, Container, Stack } from '@mui/material'
 import React from 'react'
+import { useFetch } from '../../../hooks/useFetch'
 import { Contact } from './Contact'
 import { Text } from './Text'
 
@@ -14,6 +15,8 @@ export const ContactSection = ({
     text
   }
 }: IProps) => {
+  const { data: contactData } = useFetch<any>('/dados-empresa');
+
   return (
     <Box bgcolor='var(--light-grey)'>
       <Container sx={{ py: 10 }} maxWidth='md'>
@@ -24,8 +27,8 @@ export const ContactSection = ({
           spacing={8}
           sx={{ width: 'fit-content', mx: 'auto' }}
         >
-          <Text text={text} />
-          <Contact />
+          <Text text={text} whatsapp={contactData?.data.attributes.whatsapp} />
+          <Contact data={contactData} />
         </Stack>        
       </Container>
     </Box>
