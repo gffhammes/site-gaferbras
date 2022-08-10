@@ -7,6 +7,7 @@ import { Box, createTheme, ThemeProvider } from '@mui/material'
 import { Footer } from '../src/components/common/Footer/Footer' 
 import { ProgressBar } from '../src/components/common/ProgressBar'
 import '../styles/progress-bar.css'
+import { SnackbarProvider } from 'notistack'
 
 const theme = createTheme({
   palette: {
@@ -38,6 +39,12 @@ function MyApp({ Component, pageProps, router }: AppProps) {
 
   return (
     <ThemeProvider theme={theme}>
+      <SnackbarProvider
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+      >
       <ProgressBar />
       <HeadPageTitle />
       <NavBar />
@@ -54,6 +61,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
         </motion.main>
       </AnimatePresence>
       <Footer />
+      </SnackbarProvider>
     </ThemeProvider>
   )
 }

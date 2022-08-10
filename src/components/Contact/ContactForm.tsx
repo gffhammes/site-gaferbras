@@ -1,114 +1,99 @@
 import { Box, Container, Grid, Stack } from '@mui/material'
 import React, { ChangeEvent, SyntheticEvent, useState } from 'react'
+import { sendMail } from '../../helpers/sendMail';
 import Button from '../common/Button'
+import { useSnackbar  } from 'notistack'
+import { Input } from './Input';
+import { Form, Formik } from 'formik';
 
-interface IProps { }
-
-interface IInputProps {
-  value: string;
-  label: string;
-  id: string;
-  handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
+interface IProps {
+  recipientMail: string;
 }
 
-const Input = ({ value, label, id, handleChange }: IInputProps) => {
-  return (
-    <Stack>      
-      <label style={{ color: 'var(--primary)', marginBottom: '.5rem' }}>{label}</label>
-      <Box
-        component='input'
-        type='text'
-        id={id}
-        value={value}
-        onChange={handleChange}
-        sx={{
-          height: '2rem',
-          padding: '2rem 1rem',
-          color: 'var(--primary)',
-          backgroundColor: 'rgba(182, 182, 229, 0.1)',
-          border: 0,
-          transition: '.2s all ease',
-          fontSize: 20,
-          '&:focus-visible': {
-            backgroundColor: 'rgba(182, 182, 229, 0.2)',
-            outline: 'none',
-          },
-        }}
-      />
-    </Stack>
-  )
+const formInitialState = {
+  name: '',
+  email: '',
+  company: '',
+  phone: '',
+  message: '',
 }
 
-export const ContactForm = (props: IProps) => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    phone: '',
-    message: '',
-  })
+export const ContactForm = ({ recipientMail }: IProps) => {
+  const [sending, setSending] = useState(false);
+  const { enqueueSnackbar } = useSnackbar();
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setFormData(formData => ({
-      ...formData,
-      [e.target.id]: e.target.value,
-    }))
-  }
+  const handleSubmit = (values: any, { resetForm }: any) => {
+    setSending(true);
 
-  const handleSubmit = (e: SyntheticEvent) => {
-    e.preventDefault();
+    sendMail({      
+      email: values.email,
+      recipientMail,
+      subject: 'Contato site',
+      message: 'teste',
+    })
+    .then(() => {
+      enqueueSnackbar("Mensagem enviada com sucesso!", { variant: 'success' });
+      resetForm();
+    })
+    .finally(() => setSending(false));
 
-    console.log(formData)
   }
 
 
   return (
-    <Box component='form' onSubmit={handleSubmit}>
-      <Grid container spacing={2}>
-        <Grid item xs={12} sm={6}>
-          <Input
-            value={formData.name}
-            label='Nome'
-            id='name'
-            handleChange={handleChange}
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Input
-            value={formData.email}
-            label='Email'
-            id='email'
-            handleChange={handleChange}
-          />          
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Input
-            value={formData.company}
-            label='Empresa'
-            id='company'
-            handleChange={handleChange}
-          />          
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Input
-            value={formData.phone}
-            label='Fone'
-            id='phone'
-            handleChange={handleChange}
-          />          
-        </Grid>
-        <Grid item xs={12}>
-          <Input
-            value={formData.message}
-            label='Mensagem'
-            id='message'
-            handleChange={handleChange}
-          />          
-        </Grid>
-        <Grid item xs={12} sx={{ display: 'flex' }}>
-          <Button type='submit' sx={{ mx: 'auto' }}>Enviar</Button>
-        </Grid>
-      </Grid>
-    </Box>
+    <Formik
+      initialValues={formInitialState}
+      onSubmit={handleSubmit}
+    >
+      {({ values, handleChange }) => (        
+        <Form >
+          <Grid container spacing={2}>
+            <Grid item xs={12} sm={6}>
+              <Input
+                value={values.name}
+                label='Nome'
+                id='name'
+                handleChange={handleChange}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Input
+                value={values.email}
+                label='Email'
+                id='email'
+                handleChange={handleChange}
+              />          
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Input
+                value={values.company}
+                label='Empresa'
+                id='company'
+                handleChange={handleChange}
+              />          
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Input
+                value={values.phone}
+                label='Fone'
+                id='phone'
+                handleChange={handleChange}
+              />          
+            </Grid>
+            <Grid item xs={12}>
+              <Input
+                value={values.message}
+                label='Mensagem'
+                id='message'
+                handleChange={handleChange}
+              />          
+            </Grid>
+            <Grid item xs={12} sx={{ display: 'flex' }}>
+              <Button loading={sending} type='submit' sx={{ mx: 'auto' }}>Enviar</Button>
+            </Grid>
+          </Grid>
+        </Form>
+      )}
+    </Formik>
   )
 }
