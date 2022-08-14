@@ -1,40 +1,44 @@
-import { Box, Container, Grid, Stack } from '@mui/material'
-import React, { ChangeEvent, SyntheticEvent, useState } from 'react'
-import { sendMail } from '../../helpers/sendMail';
-import Button from '../common/Button'
-import { useSnackbar  } from 'notistack'
+import { Box, Stack, Typography } from '@mui/material'
+import { useField } from 'formik';
+import React, { ChangeEvent } from 'react'
 
 interface IInputProps {
-  value: string;
   label: string;
-  id: string;
-  handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  name: string;
 }
 
-export const Input = ({ value, label, id, handleChange }: IInputProps) => {
+const sxInput = {
+  height: '2rem',
+  padding: '2rem 1rem',
+  color: 'var(--primary)',
+  backgroundColor: 'rgba(182, 182, 229, 0.1)',
+  border: 'none',
+  transition: '.2s all ease',
+  fontSize: 20,
+  outline: 'none',
+  '&:focus-visible': {
+    backgroundColor: 'rgba(182, 182, 229, 0.3)',
+  },
+}
+
+const sxInputError = {
+  ...sxInput,
+  border: '1px solid var(--red)'
+}
+
+export const Input = ({ label, name }: IInputProps) => {
+  const [field, meta, helpers] = useField({ name });
+
   return (
     <Stack>      
       <label style={{ color: 'var(--primary)', marginBottom: '.5rem' }}>{label}</label>
       <Box
+        {...field}
         component='input'
         type='text'
-        id={id}
-        value={value}
-        onChange={handleChange}
-        sx={{
-          height: '2rem',
-          padding: '2rem 1rem',
-          color: 'var(--primary)',
-          backgroundColor: 'rgba(182, 182, 229, 0.1)',
-          border: 0,
-          transition: '.2s all ease',
-          fontSize: 20,
-          '&:focus-visible': {
-            backgroundColor: 'rgba(182, 182, 229, 0.2)',
-            outline: 'none',
-          },
-        }}
+        sx={meta.error && meta.touched ? sxInputError : sxInput}
       />
+      {meta.error && meta.touched && <Typography fontSize={12} sx={{ color: 'var(--red)', mt: .5 }}>{meta.error}</Typography>}
     </Stack>
   )
 }

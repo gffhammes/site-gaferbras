@@ -12,9 +12,6 @@ interface IProps {
 }
 
 export const Contact = ({ data }: IProps) => {
-
-  console.log(data)
-
   return (
     <Stack spacing={3} sx={{ color: 'primary.main' }}>
       <ScrollAppearMotion delay={.8}>

@@ -5,10 +5,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   const email = 'contatos.sites@hotmail.com';
 
-  // const body = JSON.parse(req.body)
-
-  // console.log(req.body.body)
-
   let nodemailer = require('nodemailer')
   const transporter = nodemailer.createTransport({
     service: 'Hotmail',
