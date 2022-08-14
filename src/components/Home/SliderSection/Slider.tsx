@@ -51,8 +51,8 @@ const Slider = ({ images }: Props) => {
     <Box sx={{ position: 'relative' }}>
       <Box sx={sxEmbla} ref={emblaRef}>
         <Box sx={sxEmblaContainer}>
-          {images.map((slide, index) => {
-            const isActiveSlide = index === selectedSlide;
+          {images.map((slide, index: number) => {
+            const isActiveSlide: boolean = index === selectedSlide;
             return (
               <Box sx={sxEmblaSlide} key={index}>
                 <Box

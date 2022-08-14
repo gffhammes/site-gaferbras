@@ -36,9 +36,7 @@ export const ContactForm = ({ recipientMail }: IProps) => {
       resetForm();
     })
     .finally(() => setSending(false));
-
   }
-
 
   return (
     <Formik

@@ -18,10 +18,10 @@ const sxLogo = {
   },
   width: '12rem',
   m: 'auto',
-  filter: 'contrast(0)',
+  filter: 'saturate(0)',
   transition: '.5s ease all',
   '&:hover': {
-    filter: 'contrast(1)',
+    filter: 'saturate(1)',
   }
 }
 
