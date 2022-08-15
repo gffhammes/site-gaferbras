@@ -40,7 +40,6 @@ export const ContactContextProvider = ({ children }: IContactContextProviderProp
 
   const contactData = data?.data.attributes;
 
-
   const formattedPhone = useMemo(() => {
     const ddd = contactData?.telefone.slice(0, 2);
     const firstHalf = contactData?.telefone.slice(2, 6);
