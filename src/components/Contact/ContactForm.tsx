@@ -1,14 +1,11 @@
 import { Grid } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { sendMail } from '../../helpers/sendMail';
 import Button from '../common/Button'
 import { useSnackbar  } from 'notistack'
 import { Input } from './Input';
 import { Form, Formik } from 'formik';
-
-interface IProps {
-  recipientMail: string;
-}
+import { ContactContext } from '../../contexts/Contact/ContactContext';
 
 enum Errors {
   REQUIRED = 'Campo obrigatório',
@@ -23,9 +20,10 @@ const formInitialState = {
   message: '',
 }
 
-export const ContactForm = ({ recipientMail }: IProps) => {
+export const ContactForm = () => {
   const [sending, setSending] = useState(false);
   const { enqueueSnackbar } = useSnackbar();
+  const contactContext = useContext(ContactContext);
 
   const validate = (values: any) => {
     const errors: any = {};
@@ -60,7 +58,7 @@ export const ContactForm = ({ recipientMail }: IProps) => {
 
     sendMail({      
       email: values.email,
-      recipientMail,
+      recipientMail: contactContext.contactFormMail,
       subject: 'Contato site Gaferbras',
       message: `
         Novo contato para Gaferbras

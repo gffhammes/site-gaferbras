@@ -5,10 +5,9 @@ import { ContactForm } from './ContactForm'
 
 interface IProps {
   data: any;
-  recipientMail: string;
 }
 
-export const MainSection = ({ data, recipientMail }: IProps) => {
+export const MainSection = ({ data }: IProps) => {
   return (
     <Box bgcolor='var(--light-grey)'>
       <Container sx={{ py: 10 }} maxWidth='md'>
@@ -16,7 +15,7 @@ export const MainSection = ({ data, recipientMail }: IProps) => {
           title={data.attributes.titulo}
           text={data.attributes.h1} 
         />
-        <ContactForm recipientMail={recipientMail} />
+        <ContactForm />
       </Container>
     </Box>
   )
