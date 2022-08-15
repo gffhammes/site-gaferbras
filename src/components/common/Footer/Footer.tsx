@@ -1,6 +1,6 @@
 import { Box, Container, Grid, Stack, Typography } from '@mui/material'
 import Link from 'next/link'
-import React from 'react'
+import React, { useContext, useMemo } from 'react'
 import { pages } from '../../../constants/pages'
 import Facebook from '../../../../public/vectors/facebook.svg'
 import Instagram from '../../../../public/vectors/instagram.svg'
@@ -9,43 +9,9 @@ import Image from 'next/image'
 import { Copyright } from './Copyright'
 import { mapsLink } from '../../../constants/links'
 import { BackToTop } from './BackToTop'
+import { ContactContext } from '../../../contexts/Contact/ContactContext'
 
 interface IProps { }
-
-const infos = [
-  {
-    text: `Rua Santa Edviges, 272 - Vila Nova
-89237-210 - Joinville/SC`,
-    href: mapsLink,
-  },
-  {
-    text: '(47) 3433-1500',
-    href: 'tel: (47) 3433-1500',
-  },
-  {
-    text: 'gaferbras@gaferbras.com.br',
-    href: 'mailto:gaferbras@gaferbras.com.br',
-  },
-  {
-    text: 'CNPJ: 01.004.509/0001-75',
-    href: null,
-  },
-]
-
-const socials = [
-  {
-    vector: <Facebook />,
-    href: 'https://www.facebook.com/pages/Gaferbras-Industrial/246265889277621',
-  },
-  {
-    vector: <Instagram />,
-    href: '/',
-  },
-  {
-    vector: <Linkedin />,
-    href: '/',
-  },
-]
 
 const titleProps = {
   sx: { mb: 1 },
@@ -54,6 +20,50 @@ const titleProps = {
 }
 
 export const Footer = (props: IProps) => {
+  const contactContext = useContext(ContactContext);
+
+  const infosMemo = useMemo(() => {
+    return (
+      [
+        {
+          text: contactContext.address,
+          href: mapsLink,
+        },
+        {
+          text: contactContext.formattedPhone,
+          href: `tel:${contactContext.phone}`,
+        },
+        {
+          text: contactContext.defaultMail,
+          href: `mailto:${contactContext.defaultMail}`,
+        },
+        {
+          text: contactContext.cnpj,
+          href: null,
+        },
+      ]
+    )
+  }, [contactContext])
+
+  const socials = useMemo(() => {
+    return (
+      [
+        {
+          vector: <Facebook />,
+          href: contactContext.facebookUrl,
+        },
+        {
+          vector: <Instagram />,
+          href: contactContext.instagramUrl,
+        },
+        {
+          vector: <Linkedin />,
+          href: contactContext.linkedinUrl,
+        },
+      ]
+    )
+  }, [contactContext.facebookUrl, contactContext.instagramUrl, contactContext.linkedinUrl])
+
   return (
     <Box component='footer'>
       <BackToTop />
@@ -86,7 +96,7 @@ export const Footer = (props: IProps) => {
             <Grid item xs={12} sm={5} md={4}>
               <Typography {...titleProps}>Informações</Typography>
               <Stack spacing={1}>              
-                {infos.map(info => {
+                {infosMemo.map(info => {
                   return info.href
                     ? (
                         <Box key={info.text} sx={{ width: 'fit-content' }}>                      
@@ -108,9 +118,9 @@ export const Footer = (props: IProps) => {
                 <Box>
                   <Typography {...titleProps}>Trabalhe conosco</Typography>
                   <Box sx={{ width: 'fit-content' }}>                               
-                    <Link href='mailto:contato@gaferbras.com.br' passHref>
+                    <Link href={`mailto:${contactContext.recruitingMail}`} passHref>
                       <a target='_blank' style={{ width: 'fit-content' }}>
-                        <Typography sx={{ width: 'fit-content' }}>contato@gaferbras.com.br</Typography>
+                        <Typography sx={{ width: 'fit-content' }}>{contactContext.recruitingMail}</Typography>
                       </a>
                     </Link>
                   </Box>
@@ -119,7 +129,7 @@ export const Footer = (props: IProps) => {
                   <Typography {...titleProps}>Redes sociais</Typography>
                   <Stack direction='row' spacing={2}>
                     {socials.map((social, index) => (
-                      <Link href={social.href} key={index} passHref>
+                      <Link href={social.href ?? ""} key={index} passHref>
                         <a target='_blank'>
                           {social.vector}
                         </a>
