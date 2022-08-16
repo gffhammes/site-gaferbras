@@ -19,11 +19,30 @@ const sxFrame = {
   '&:hover': {
     color: 'white',
     transform: 'scale(1.05)',
-    zIndex: 500,
-    '& .overlay': {
+    '& .frame-overlay': {
       opacity: 1,
     }
   }
+}
+
+const sxRedOverlay = {
+  position: 'absolute',
+  height: '100%',
+  width: '100%',
+  backgroundColor: '#E83924',
+  opacity: 0,
+  transition: 'opacity .2s ease',
+}
+
+const sxImage = {
+  position: 'absolute',
+  height: '100%',
+  width: '100%',
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  filter: 'saturate(0)',
+  mixBlendMode: 'overlay',
+  opacity: .5,
 }
 
 const sxText = {
@@ -41,43 +60,8 @@ export const Frame = ({
     <SlideFromBottomAppearMotion delay={delay}>
       <Box bgcolor='#D1D4F0' sx={sxFrame}>
         <Typography fontSize={19} fontWeight={500} sx={sxText}>{cardData.text}</Typography>
-          <Box
-            className='frame-image'
-            sx={{
-              position: 'absolute',
-              height: '100%',
-              width: '100%',
-              backgroundImage: `url(${cardData.imageSrc})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              filter: 'saturate(0)',
-              opacity: .2,
-            }}
-          />
-        <Box className='overlay' sx={{ position: 'absolute', height: '100%', width: '100%', transition: 'opacity .2s ease', opacity: 0 }}>
-          <Box
-            className='frame-overlay'
-            sx={{
-              position: 'absolute',
-              height: '100%',
-              width: '100%',
-              backgroundColor: '#E83924',
-            }}
-          />
-          <Box
-            className='frame-image'
-            sx={{
-              position: 'absolute',
-              height: '100%',
-              width: '100%',
-              backgroundImage: `url(${cardData.imageSrc})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              mixBlendMode: 'overlay',
-              opacity: .52,
-            }}
-          />
-        </Box>
+        <Box className='frame-overlay' sx={sxRedOverlay} />
+        <Box className='frame-image' sx={{ ...sxImage, backgroundImage: `url(${cardData.imageSrc})`, }} />
       </Box>
     </SlideFromBottomAppearMotion>
   )
