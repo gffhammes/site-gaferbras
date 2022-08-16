@@ -1,7 +1,7 @@
 import { Box, Container, Typography } from '@mui/material'
 import React from 'react'
 import { useBreakPoint } from '../../../hooks/useBreakPoint'
-import { Frames } from './Frames'
+import { Frames } from './Frames/Frames'
 import { LeftImage } from './LeftImage'
 import { Text } from './Text'
 
