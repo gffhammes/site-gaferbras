@@ -15,7 +15,7 @@ const sxFrame = {
   aspectRatio: '1 / 1',
   position: 'relative',
   transition: '.2s ease all',
-  color: '#E83924',
+  color: '#3F3C9A',
   '&:hover': {
     color: 'white',
     transform: 'scale(1.05)',
