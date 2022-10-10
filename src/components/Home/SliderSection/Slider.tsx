@@ -83,12 +83,14 @@ const Slider = ({ images }: Props) => {
             })}
           </Box>
         </Box>
+
         <Box
           sx={{
             position: "absolute",
             width: "100%",
             top: "50%",
             transform: "translateY(-50%)",
+            pointerEvents: "none",
           }}
         >
           <Container
@@ -114,6 +116,7 @@ const Slider = ({ images }: Props) => {
           </Container>
         </Box>
       </Box>
+
       <Stack
         direction="row"
         spacing={0.75}
