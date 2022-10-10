@@ -106,10 +106,16 @@ const Slider = ({ images }: Props) => {
               alignItems="center"
               sx={{ width: "100%" }}
             >
-              <Box onClick={scrollPrev} sx={{ cursor: "pointer" }}>
+              <Box
+                onClick={scrollPrev}
+                sx={{ cursor: "pointer", pointerEvents: "all" }}
+              >
                 <LeftArrow />
               </Box>
-              <Box onClick={scrollNext} sx={{ cursor: "pointer" }}>
+              <Box
+                onClick={scrollNext}
+                sx={{ cursor: "pointer", pointerEvents: "all" }}
+              >
                 <RightArrow />
               </Box>
             </Stack>
