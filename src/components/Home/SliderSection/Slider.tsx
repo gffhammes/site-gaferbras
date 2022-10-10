@@ -35,7 +35,7 @@ const bulletSize = ".6rem";
 const Slider = ({ images }: Props) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
-    draggable: false,
+    draggable: true,
   });
   const [selectedSlide, setSelectedSlide] = useState(0);
 
