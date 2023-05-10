@@ -1,26 +1,18 @@
-import axios from 'axios';
-import type { NextPage } from 'next'
-import { MainSection } from '../src/components/Contact/MainSection'
+import type { NextPage } from "next";
+import { MainSection } from "../src/components/Contact/MainSection";
 
-const Contact: NextPage = ({ data }: any) => {
-  return (
-    <>
-      <MainSection data={data} />
-    </>
-  )
-}
+const data = {
+  attributes: {
+    titulo: "Contato",
+    h1: "Mande sua mensagem que responderemos o mais rápido possível!",
+    createdAt: "2022-07-26T21:13:23.659Z",
+    updatedAt: "2022-07-26T21:13:24.821Z",
+    publishedAt: "2022-07-26T21:13:24.818Z",
+  },
+};
 
-export async function getServerSideProps() {
-  const { API_URL } = process.env;
+const Contact: NextPage = () => {
+  return <MainSection data={data} />;
+};
 
-  const pageContentRes = await axios.get(`${API_URL}/contato?populate=*`).then(response => response.data);
-
-  return {
-    props: {
-      data: pageContentRes.data,
-    }
-  }
-
-}
-
-export default Contact
+export default Contact;
